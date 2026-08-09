@@ -26,7 +26,7 @@ export default function NewArrivalsSection() {
           </div>
 
           <Link
-            to="/shop?sort=newest"
+            to="/shop"
             className="mt-4 md:mt-0 text-xs font-bold uppercase tracking-widest text-[#4A154B] hover:text-[#B38F38] inline-flex items-center justify-center md:justify-start"
           >
             <span>VIEW ALL NEW ARRIVALS</span>

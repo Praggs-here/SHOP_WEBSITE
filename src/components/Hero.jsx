@@ -42,7 +42,7 @@ export default function Hero() {
               </Link>
               
               <Link
-                to="/shop?sort=newest"
+                to="/shop"
                 className="w-full sm:w-auto px-8 py-4 bg-[#FFFDF9] hover:bg-[#F5F0EB] text-[#4A154B] border border-[#D9C8B4] text-xs sm:text-sm font-bold uppercase tracking-widest rounded-full transition-all duration-300 shadow-sm flex items-center justify-center"
               >
                 <span>EXPLORE NEW ARRIVALS</span>

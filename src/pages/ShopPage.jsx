@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
-import { Filter, SlidersHorizontal, RotateCcw, Search, Sparkles, Heart } from 'lucide-react';
+import { useSearchParams } from 'react-router-dom';
+import { Filter, SlidersHorizontal, RotateCcw, Heart } from 'lucide-react';
 import { products } from '../data/products';
 import { categories } from '../data/categories';
 import ProductCard from '../components/ProductCard';
@@ -12,26 +12,20 @@ export default function ShopPage() {
 
   // URL state sync
   const categoryParam = searchParams.get('category') || 'all';
-  const sortParam = searchParams.get('sort') || 'featured';
   const isWishlistMode = searchParams.get('wishlist') === 'true';
 
   const [selectedCategory, setSelectedCategory] = useState(categoryParam);
   const [selectedSize, setSelectedSize] = useState('all');
   const [maxPrice, setMaxPrice] = useState(12000);
-  const [sortBy, setSortBy] = useState(sortParam);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
   useEffect(() => {
     setSelectedCategory(categoryParam);
   }, [categoryParam]);
 
-  useEffect(() => {
-    setSortBy(sortParam);
-  }, [sortParam]);
-
   const sizesList = ['all', 'XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL', '4XL', 'Free Size'];
 
-  // Filtering & Sorting Logic
+  // Filtering Logic
   const filteredProducts = useMemo(() => {
     let result = isWishlistMode ? wishlistItems : [...products];
 
@@ -48,25 +42,13 @@ export default function ShopPage() {
     // Price Filter
     result = result.filter(p => p.price <= maxPrice);
 
-    // Sort Logic
-    if (sortBy === 'price-low') {
-      result.sort((a, b) => a.price - b.price);
-    } else if (sortBy === 'price-high') {
-      result.sort((a, b) => b.price - a.price);
-    } else if (sortBy === 'newest') {
-      result.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
-    } else if (sortBy === 'rating') {
-      result.sort((a, b) => b.rating - a.rating);
-    }
-
     return result;
-  }, [selectedCategory, selectedSize, maxPrice, sortBy, isWishlistMode, wishlistItems]);
+  }, [selectedCategory, selectedSize, maxPrice, isWishlistMode, wishlistItems]);
 
   const handleReset = () => {
     setSelectedCategory('all');
     setSelectedSize('all');
     setMaxPrice(12000);
-    setSortBy('featured');
     setSearchParams({});
   };
 
@@ -86,34 +68,17 @@ export default function ShopPage() {
         </div>
 
         {/* Toolbar Bar */}
-        <div className="bg-[#FFFDF9] p-4 rounded-2xl border border-[#E8D5C4] shadow-sm mb-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center space-x-3 w-full sm:w-auto justify-between sm:justify-start">
-            <button
-              onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
-              className="lg:hidden px-4 py-2 bg-[#FAF8F5] text-[#4A154B] border border-[#E8D5C4] text-xs font-bold rounded-xl flex items-center"
-            >
-              <SlidersHorizontal className="w-4 h-4 mr-2" /> Filters
-            </button>
-            
-            <span className="text-xs font-bold text-[#7A4C62]">
-              Showing <strong className="text-[#4A154B]">{filteredProducts.length}</strong> items
-            </span>
-          </div>
+        <div className="bg-[#FFFDF9] p-4 rounded-2xl border border-[#E8D5C4] shadow-sm mb-8 flex items-center gap-4">
+          <button
+            onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
+            className="lg:hidden px-4 py-2 bg-[#FAF8F5] text-[#4A154B] border border-[#E8D5C4] text-xs font-bold rounded-xl flex items-center"
+          >
+            <SlidersHorizontal className="w-4 h-4 mr-2" /> Filters
+          </button>
 
-          <div className="flex items-center space-x-4 w-full sm:w-auto justify-end">
-            <label className="text-xs font-bold text-[#4A154B] whitespace-nowrap">Sort By:</label>
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-              className="px-3 py-2 bg-[#FAF8F5] border border-[#E8D5C4] rounded-xl text-xs font-semibold text-[#4A154B] focus:outline-none focus:border-[#4A154B]"
-            >
-              <option value="featured">Featured</option>
-              <option value="newest">Newest Arrivals</option>
-              <option value="price-low">Price: Low to High</option>
-              <option value="price-high">Price: High to Low</option>
-              <option value="rating">Best Rated</option>
-            </select>
-          </div>
+          <span className="text-xs font-bold text-[#7A4C62]">
+            Showing <strong className="text-[#4A154B]">{filteredProducts.length}</strong> items
+          </span>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">

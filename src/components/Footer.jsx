@@ -75,7 +75,7 @@ export default function Footer() {
               SHOP CATEGORIES
             </h4>
             <ul className="space-y-2 text-xs text-[#F4DCD9]/90">
-              <li><Link to="/shop?sort=newest" className="hover:text-white transition-colors">New Arrivals</Link></li>
+              <li><Link to="/shop" className="hover:text-white transition-colors">New Arrivals</Link></li>
               <li><Link to="/shop?category=sarees" className="hover:text-white transition-colors">Sarees</Link></li>
               <li><Link to="/shop?category=lehengas" className="hover:text-white transition-colors">Lehengas</Link></li>
               <li><Link to="/shop?category=suits" className="hover:text-white transition-colors">Suits & Salwar Sets</Link></li>

@@ -43,7 +43,7 @@ export default function PromotionBanner() {
 
           <div className="lg:col-span-4 text-center lg:text-right">
             <Link
-              to="/shop?sort=newest"
+              to="/shop"
               className="inline-flex items-center px-8 py-4 bg-[#D4AF37] hover:bg-[#C5A059] text-[#4A154B] text-xs sm:text-sm font-bold uppercase tracking-widest rounded-full shadow-2xl hover:scale-105 transition-all duration-300 group"
             >
               <span>SHOP SUMMER COLLECTION</span>

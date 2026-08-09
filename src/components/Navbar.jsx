@@ -25,7 +25,7 @@ export default function Navbar({ onOpenSearch }) {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Shop Catalogue', path: '/shop' },
-    { name: 'New Arrivals', path: '/shop?sort=newest' },
+    { name: 'New Arrivals', path: '/shop' },
     { name: 'Sarees', path: '/shop?category=sarees' },
     { name: 'Ethnic Wear', path: '/shop?category=suits' },
     { name: 'Western Wear', path: '/shop?category=dresses' },
