@@ -17,7 +17,6 @@ export default function ShopPage() {
 
   const [selectedCategory, setSelectedCategory] = useState(categoryParam);
   const [selectedSize, setSelectedSize] = useState('all');
-  const [selectedColor, setSelectedColor] = useState('all');
   const [maxPrice, setMaxPrice] = useState(12000);
   const [sortBy, setSortBy] = useState(sortParam);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
@@ -31,7 +30,6 @@ export default function ShopPage() {
   }, [sortParam]);
 
   const sizesList = ['all', 'XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL', '4XL', 'Free Size'];
-  const colorsList = ['all', 'Pink', 'Blue', 'Green', 'Yellow', 'Red', 'Maroon', 'Beige', 'White', 'Gold'];
 
   // Filtering & Sorting Logic
   const filteredProducts = useMemo(() => {
@@ -45,11 +43,6 @@ export default function ShopPage() {
     // Size Filter
     if (selectedSize !== 'all') {
       result = result.filter(p => p.sizes && p.sizes.includes(selectedSize));
-    }
-
-    // Color Filter
-    if (selectedColor !== 'all') {
-      result = result.filter(p => p.colors && p.colors.includes(selectedColor));
     }
 
     // Price Filter
@@ -67,12 +60,11 @@ export default function ShopPage() {
     }
 
     return result;
-  }, [selectedCategory, selectedSize, selectedColor, maxPrice, sortBy, isWishlistMode, wishlistItems]);
+  }, [selectedCategory, selectedSize, maxPrice, sortBy, isWishlistMode, wishlistItems]);
 
   const handleReset = () => {
     setSelectedCategory('all');
     setSelectedSize('all');
-    setSelectedColor('all');
     setMaxPrice(12000);
     setSortBy('featured');
     setSearchParams({});
@@ -216,28 +208,6 @@ export default function ShopPage() {
                 <div className="flex justify-between text-[10px] text-[#7A4C62]">
                   <span>₹500</span>
                   <span>₹12,000+</span>
-                </div>
-              </div>
-
-              {/* Color Filter */}
-              <div className="space-y-2 pt-4 border-t border-[#F4EBE2]">
-                <label className="text-xs font-bold uppercase tracking-wider text-[#4A154B]">
-                  Color
-                </label>
-                <div className="flex flex-wrap gap-2">
-                  {colorsList.map((col) => (
-                    <button
-                      key={col}
-                      onClick={() => setSelectedColor(col)}
-                      className={`px-3 py-1 text-xs font-medium rounded-full border transition-all ${
-                        selectedColor === col
-                          ? 'bg-[#F4DCD9] text-[#4A154B] font-bold border-[#4A154B]'
-                          : 'bg-white text-[#5C524E] border-[#E8D5C4]'
-                      }`}
-                    >
-                      {col === 'all' ? 'All Colors' : col}
-                    </button>
-                  ))}
                 </div>
               </div>
 
