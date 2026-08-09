@@ -26,9 +26,6 @@ export default function Navbar({ onOpenSearch }) {
     { name: 'Home', path: '/' },
     { name: 'Shop Catalogue', path: '/shop' },
     { name: 'New Arrivals', path: '/shop' },
-    { name: 'Sarees', path: '/shop?category=sarees' },
-    { name: 'Ethnic Wear', path: '/shop?category=suits' },
-    { name: 'Western Wear', path: '/shop?category=dresses' },
     { name: 'Collections', path: '/collections' },
     { name: 'About Boutique', path: '/about' },
   ];
