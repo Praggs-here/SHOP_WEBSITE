@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Star, Heart, ShoppingBag, ShieldCheck, Truck, RotateCcw, Check, Sparkles } from 'lucide-react';
 import { products } from '../data/products';
-import { useCart } from '../context/CartContext';
+import { addToCart } from '../utils/cart';
 import { useWishlist } from '../context/WishlistContext';
 import ProductCard from '../components/ProductCard';
 
 export default function ProductDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { addToCart } = useCart();
+  
   const { toggleWishlist, isInWishlist } = useWishlist();
 
   const product = products.find(p => p.id === id) || products[0];

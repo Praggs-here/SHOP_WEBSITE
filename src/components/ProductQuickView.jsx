@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { X, Star, Heart, ShoppingBag, ShieldCheck } from 'lucide-react';
-import { useCart } from '../context/CartContext';
+import { addToCart } from '../utils/cart';
 import { useWishlist } from '../context/WishlistContext';
 
 export default function ProductQuickView({ product, onClose }) {
   const navigate = useNavigate();
-  const { addToCart } = useCart();
+  
   const { toggleWishlist, isInWishlist } = useWishlist();
 
   const [selectedSize, setSelectedSize] = useState(product.sizes ? product.sizes[0] : 'Free Size');
