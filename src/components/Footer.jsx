@@ -94,7 +94,6 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-xs text-[#F4DCD9]/90">
               <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
-              <li><Link to="/about" className="hover:text-white transition-colors">Size & Alteration</Link></li>
               <li><Link to="/about" className="hover:text-white transition-colors">Visit Store</Link></li>
               <li><Link to="/shop?wishlist=true" className="hover:text-white transition-colors">Saved Wishlist</Link></li>
             </ul>
