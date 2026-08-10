@@ -24,13 +24,16 @@ export default function SearchOverlay({ isOpen, onClose }) {
     'Saree', 'Kurti', 'Lehenga', 'Suit', 'Dress', 'Dupatta', 'Co-ord', 'Blouse', 'Sharara', 'Plus Size'
   ];
 
-  const filteredProducts = query.trim()
-    ? products.filter(p => 
-        p.name.toLowerCase().includes(query.toLowerCase()) ||
-        p.categoryName.toLowerCase().includes(query.toLowerCase()) ||
-        p.description.toLowerCase().includes(query.toLowerCase())
-      )
-    : [];
+  const matchesSearchQuery = (product) => {
+    const lowerQuery = query.toLowerCase();
+    return (
+      product.name.toLowerCase().includes(lowerQuery) ||
+      product.categoryName.toLowerCase().includes(lowerQuery) ||
+      product.description.toLowerCase().includes(lowerQuery)
+    );
+  };
+
+  const searchResults = query.trim() ? products.filter(matchesSearchQuery) : [];
 
   const handleSelectProduct = (id) => {
     onClose();
@@ -100,17 +103,17 @@ export default function SearchOverlay({ isOpen, onClose }) {
         {query.trim() && (
           <div className="mt-6 max-h-96 overflow-y-auto space-y-3 pt-4 border-t border-[#F4EBE2]">
             <span className="text-xs font-bold text-[#7A4C62] uppercase tracking-wider block">
-              Found {filteredProducts.length} matching items
+              Found {searchResults.length} matching items
             </span>
 
-            {filteredProducts.length === 0 ? (
+            {searchResults.length === 0 ? (
               <div className="py-8 text-center text-[#5C524E]">
                 <p className="text-sm font-medium">No outfits found matching "{query}".</p>
                 <p className="text-xs text-[#9B6B82] mt-1">Try searching for Saree, Kurti, Salwar Suit, Lehenga, or Dress.</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {filteredProducts.map((p) => (
+                {searchResults.map((p) => (
                   <div
                     key={p.id}
                     onClick={() => handleSelectProduct(p.id)}

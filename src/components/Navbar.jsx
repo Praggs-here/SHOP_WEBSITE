@@ -22,6 +22,7 @@ export default function Navbar({ onOpenSearch }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Navigation links for desktop and mobile views.
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Shop Catalogue', path: '/shop' },
@@ -29,6 +30,11 @@ export default function Navbar({ onOpenSearch }) {
     { name: 'Collections', path: '/collections' },
     { name: 'About Boutique', path: '/about' },
   ];
+
+  const getIsActiveLink = (path) => {
+    return location.pathname === path ||
+      (path.includes('?') && location.search.includes(path.split('?')[1]));
+  };
 
   return (
     <header className="sticky top-0 z-40 w-full transition-all duration-300">
@@ -81,7 +87,7 @@ export default function Navbar({ onOpenSearch }) {
           {/* Desktop Navigation Links */}
           <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             {navLinks.map((link) => {
-              const isActive = location.pathname === link.path || (link.path.includes('?') && location.search.includes(link.path.split('?')[1]));
+              const isActive = getIsActiveLink(link.path);
               return (
                 <Link
                   key={link.name}

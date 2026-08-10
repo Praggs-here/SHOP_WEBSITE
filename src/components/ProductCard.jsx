@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { Heart, Star } from 'lucide-react';
 import { useWishlist } from '../context/WishlistContext';
 
+// ProductCard displays a single product tile with image, category label, rating, price, and wishlist button.
+
 export default function ProductCard({ product }) {
   const { toggleWishlist, isInWishlist } = useWishlist();
 

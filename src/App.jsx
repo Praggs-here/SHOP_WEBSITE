@@ -8,6 +8,8 @@ import AnnouncementPopup from './components/AnnouncementPopup';
 import SearchOverlay from './components/SearchOverlay';
 import Footer from './components/Footer';
 
+// The core App component renders the site shell with routing, global overlays, and shared wishlist state.
+
 import Home from './pages/Home';
 import ShopPage from './pages/ShopPage';
 import ProductDetails from './pages/ProductDetails';

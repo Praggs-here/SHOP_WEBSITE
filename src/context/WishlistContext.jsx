@@ -3,6 +3,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 const WishlistContext = createContext();
 
 export const WishlistProvider = ({ children }) => {
+  // Load wishlist items from localStorage when the app starts.
   const [wishlistItems, setWishlistItems] = useState(() => {
     try {
       const saved = localStorage.getItem('om_divine_wishlist');
@@ -13,6 +14,7 @@ export const WishlistProvider = ({ children }) => {
   });
 
   useEffect(() => {
+    // Save wishlist updates to localStorage so items persist across page reloads.
     try {
       localStorage.setItem('om_divine_wishlist', JSON.stringify(wishlistItems));
     } catch (e) {
