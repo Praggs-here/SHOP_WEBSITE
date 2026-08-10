@@ -27,12 +27,12 @@ export default function ProductCard({ product }) {
     <>
       <div className="group relative rounded-2xl overflow-hidden bg-[#FFFDF9] border border-[#E8D5C4]/60 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col justify-between h-full">
         {/* Top Image Box */}
-        <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#FAF8F5]">
-          <Link to={`/product/${product.id}`} className="block w-full h-full">
+        <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#FAF8F5] p-3 flex items-center justify-center">
+          <Link to={`/product/${product.id}`} className="block w-full h-full flex items-center justify-center">
             <img
               src={product.image}
               alt={product.name}
-              className="w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700"
+              className="w-[90%] h-[90%] object-cover object-center rounded-[1rem] mx-auto transform group-hover:scale-[1.03] transition-transform duration-700 shadow-sm"
               loading="lazy"
             />
           </Link>
