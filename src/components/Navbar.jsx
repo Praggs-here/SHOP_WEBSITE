@@ -68,7 +68,7 @@ export default function Navbar({ onOpenSearch }) {
           {/* Logo / Brand Header */}
           <Link to="/" className="flex flex-col items-center lg:items-start text-center lg:text-left group">
             <span className="text-[10px] sm:text-xs tracking-[0.25em] text-[#7A4C62] uppercase font-semibold">
-              RC. Jain's
+              RC Jain's
             </span>
             <span className="font-serif-custom text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-[#4A154B] leading-tight group-hover:text-[#B38F38] transition-colors">
               OM DIVINE INSPIRATIONS
