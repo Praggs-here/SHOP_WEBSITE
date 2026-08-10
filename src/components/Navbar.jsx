@@ -39,7 +39,7 @@ export default function Navbar({ onOpenSearch }) {
           <a href="tel:9319325840" className="flex items-center hover:text-[#D4AF37] transition-colors"><Phone className="w-3 h-3 mr-1 text-[#D4AF37]" /> 9319325840</a>
         </div>
         <div className="font-serif-custom italic text-sm text-[#F4DCD9]">
-          R. C. Jain's — Where Tradition meets Trends
+          Om Divine Inspirations — Where Tradition meets Trends
         </div>
         <div className="text-xs text-[#D4AF37] font-semibold tracking-wider uppercase">
           Plus Sizes Available • XL to 4XL
