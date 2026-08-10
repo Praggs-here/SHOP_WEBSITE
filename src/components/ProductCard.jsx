@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Heart, Star, Eye } from 'lucide-react';
+import { Heart, Star } from 'lucide-react';
 import { useWishlist } from '../context/WishlistContext';
-import ProductQuickView from './ProductQuickView';
 
 export default function ProductCard({ product }) {
-  const [showQuickView, setShowQuickView] = useState(false);
-
   const { toggleWishlist, isInWishlist } = useWishlist();
 
   const isLiked = isInWishlist(product.id);
@@ -15,12 +12,6 @@ export default function ProductCard({ product }) {
     e.preventDefault();
     e.stopPropagation();
     toggleWishlist(product);
-  };
-
-  const handleOpenQuickView = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setShowQuickView(true);
   };
 
   return (
@@ -65,15 +56,6 @@ export default function ProductCard({ product }) {
             <Heart className={`w-4 h-4 ${isLiked ? 'fill-current' : ''}`} />
           </button>
 
-          {/* Quick View Floating Overlay on Hover */}
-          <div className="absolute inset-x-3 bottom-3 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center space-x-2 z-10">
-            <button
-              onClick={handleOpenQuickView}
-              className="w-full py-2.5 bg-white/90 backdrop-blur-md hover:bg-white text-[#4A154B] text-xs font-bold uppercase tracking-wider rounded-xl shadow-md transition-all flex items-center justify-center"
-            >
-              <Eye className="w-3.5 h-3.5 mr-1.5" /> Quick View
-            </button>
-          </div>
         </div>
 
         {/* Product Details Section */}
@@ -109,10 +91,4 @@ export default function ProductCard({ product }) {
         </div>
       </div>
 
-      {/* Quick View Modal */}
-      {showQuickView && (
-        <ProductQuickView product={product} onClose={() => setShowQuickView(false)} />
-      )}
-    </>
-  );
 }
