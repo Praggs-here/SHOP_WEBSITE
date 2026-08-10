@@ -15,7 +15,6 @@ export default function ProductCard({ product }) {
   };
 
   return (
-    <>
       <div className="group relative rounded-2xl overflow-hidden bg-[#FFFDF9] border border-[#E8D5C4]/60 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col justify-between h-full">
         {/* Top Image Box */}
         <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#FAF8F5] p-3 flex items-center justify-center">
@@ -90,5 +89,5 @@ export default function ProductCard({ product }) {
           </div>
         </div>
       </div>
-
+  );
 }
