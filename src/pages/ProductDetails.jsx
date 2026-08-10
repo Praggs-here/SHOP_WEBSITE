@@ -232,15 +232,6 @@ export default function ProductDetails() {
               Care & Fabric
               {activeTab === 'care' && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#D4AF37]"></span>}
             </button>
-            <button
-              onClick={() => setActiveTab('delivery')}
-              className={`pb-4 text-sm font-bold uppercase tracking-wider relative transition-colors ${
-                activeTab === 'delivery' ? 'text-[#4A154B]' : 'text-[#7A4C62]'
-              }`}
-            >
-              Delivery & Returns
-              {activeTab === 'delivery' && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#D4AF37]"></span>}
-            </button>
           </div>
 
           <div className="pt-6 text-sm text-[#5C524E] leading-relaxed">
@@ -266,12 +257,6 @@ export default function ProductDetails() {
               </div>
             )}
 
-            {activeTab === 'delivery' && (
-              <div className="space-y-2">
-                <p><strong className="text-[#4A154B]">Delhi NCR Orders:</strong> Delivered within 24–48 hours from our Mahavir Enclave store.</p>
-                <p><strong className="text-[#4A154B]">Guest Returns & Exchange:</strong> Easy 7-day exchange window available in-store or via customer care (+91 9319325840).</p>
-              </div>
-            )}
           </div>
         </div>
 
