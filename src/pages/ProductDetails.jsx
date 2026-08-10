@@ -90,7 +90,7 @@ export default function ProductDetails() {
           <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
             <div className="space-y-4">
               <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#9B6B82]">
-                R. C. JAIN'S • {product.categoryName}
+                RC JAIN'S • {product.categoryName}
               </span>
               <h1 className="font-serif-custom text-3xl sm:text-4xl font-bold text-[#4A154B]">
                 {product.name}
