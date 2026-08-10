@@ -20,7 +20,7 @@ export default function Hero() {
 
             <div className="space-y-2">
               <span className="text-xs sm:text-sm font-semibold tracking-[0.3em] text-[#9B6B82] uppercase block">
-                R. C. Jain's OM DIVINE INSPIRATIONS
+                RC Jain's OM DIVINE INSPIRATIONS
               </span>
               <h1 className="font-serif-custom text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#4A154B] leading-[1.15]">
                 WHERE TRADITION <br className="hidden sm:inline" />

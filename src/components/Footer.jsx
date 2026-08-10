@@ -27,7 +27,7 @@ export default function Footer() {
           <div className="lg:col-span-4 space-y-4">
             <div className="flex flex-col">
               <span className="text-xs uppercase tracking-[0.25em] text-[#D4AF37] font-semibold">
-                R. C. Jain's
+                RC Jain's
               </span>
               <span className="font-serif-custom text-2xl lg:text-3xl font-bold tracking-tight text-white">
                 OM DIVINE INSPIRATIONS

@@ -1,27 +1,18 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { X, Star, Heart, ShoppingBag, ShieldCheck } from 'lucide-react';
-import { addToCart } from '../utils/cart';
+import { X, Star, Heart, ShieldCheck } from 'lucide-react';
 import { useWishlist } from '../context/WishlistContext';
 
 export default function ProductQuickView({ product, onClose }) {
-  const navigate = useNavigate();
-  
   const { toggleWishlist, isInWishlist } = useWishlist();
 
   const [selectedSize, setSelectedSize] = useState(product.sizes ? product.sizes[0] : 'Free Size');
   const [selectedColor, setSelectedColor] = useState(product.colors ? product.colors[0] : 'Default');
-  const [quantity, setQuantity] = useState(1);
 
   if (!product) return null;
 
   const isLiked = isInWishlist(product.id);
 
-  const handleBuyNow = () => {
-    addToCart(product, selectedSize, selectedColor, quantity);
-    onClose();
-    navigate('/checkout');
-  };
+  
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
@@ -133,42 +124,15 @@ export default function ProductQuickView({ product, onClose }) {
                 </div>
               )}
 
-              {/* Quantity */}
-              <div className="mt-4 flex items-center space-x-4">
-                <label className="text-xs font-bold uppercase tracking-wider text-[#4A154B]">
-                  Qty:
-                </label>
-                <div className="flex items-center border border-[#E8D5C4] rounded-lg bg-white">
-                  <button
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="px-3 py-1 text-sm font-bold text-[#4A154B] hover:bg-[#FAF8F5]"
-                  >
-                    -
-                  </button>
-                  <span className="px-3 text-sm font-bold">{quantity}</span>
-                  <button
-                    onClick={() => setQuantity(quantity + 1)}
-                    className="px-3 py-1 text-sm font-bold text-[#4A154B] hover:bg-[#FAF8F5]"
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
+              
             </div>
 
             {/* Actions */}
-            <div className="space-y-3 pt-4 border-t border-[#F4EBE2]">
-              <div className="flex items-center space-x-3">
-                <button
-                  onClick={handleBuyNow}
-                  className="flex-1 py-3 bg-[#4A154B] hover:bg-[#5C0632] text-white text-xs font-bold uppercase tracking-widest rounded-xl transition-all shadow-md flex items-center justify-center space-x-2"
-                >
-                  <ShoppingBag className="w-4 h-4 mr-2" />
-                  BUY NOW
-                </button>
+              <div className="space-y-3 pt-4 border-t border-[#F4EBE2]">
+              <div className="flex items-center">
                 <button
                   onClick={() => toggleWishlist(product)}
-                  className={`p-3 rounded-xl border transition-all ${
+                  className={`flex-1 p-3 rounded-xl border transition-all ${
                     isLiked
                       ? 'bg-[#5C0632] text-white border-[#5C0632]'
                       : 'bg-white text-[#4A154B] border-[#E8D5C4] hover:bg-[#FAF8F5]'
