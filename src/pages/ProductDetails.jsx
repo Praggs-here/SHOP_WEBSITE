@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
-import { Star, Heart, ShoppingBag, ShieldCheck, Truck, RotateCcw, Check, Sparkles } from 'lucide-react';
+import { useParams, Link } from 'react-router-dom';
+import { Star, Heart, ShieldCheck, Truck, RotateCcw, Check, Sparkles } from 'lucide-react';
 import { products } from '../data/products';
-import { addToCart } from '../utils/cart';
 import { useWishlist } from '../context/WishlistContext';
 import ProductCard from '../components/ProductCard';
 
 export default function ProductDetails() {
   const { id } = useParams();
-  const navigate = useNavigate();
   
   const { toggleWishlist, isInWishlist } = useWishlist();
 
@@ -17,7 +15,6 @@ export default function ProductDetails() {
   const [activeImage, setActiveImage] = useState(product.image);
   const [selectedSize, setSelectedSize] = useState(product.sizes ? product.sizes[0] : 'Free Size');
   const [selectedColor, setSelectedColor] = useState(product.colors ? product.colors[0] : 'Default');
-  const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState('details');
 
   useEffect(() => {
@@ -30,11 +27,6 @@ export default function ProductDetails() {
   }, [id, product]);
 
   const isLiked = isInWishlist(product.id);
-
-  const handleBuyNow = () => {
-    addToCart(product, selectedSize, selectedColor, quantity);
-    navigate('/checkout');
-  };
 
   const relatedProducts = products
     .filter(p => p.category === product.category && p.id !== product.id)
@@ -180,43 +172,14 @@ export default function ProductDetails() {
                 </div>
               )}
 
-              {/* Quantity */}
-              <div className="space-y-2 pt-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-[#4A154B] block">
-                  Quantity:
-                </label>
-                <div className="flex items-center border border-[#E8D5C4] rounded-xl bg-white w-32">
-                  <button
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="px-3 py-2 text-sm font-bold text-[#4A154B]"
-                  >
-                    -
-                  </button>
-                  <span className="flex-1 text-center text-sm font-bold">{quantity}</span>
-                  <button
-                    onClick={() => setQuantity(quantity + 1)}
-                    className="px-3 py-2 text-sm font-bold text-[#4A154B]"
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
             </div>
 
             {/* CTAs */}
             <div className="space-y-3 pt-6 border-t border-[#F4EBE2]">
-              <div className="flex flex-col sm:flex-row gap-3">
-                <button
-                  onClick={handleBuyNow}
-                  className="flex-1 py-4 bg-[#4A154B] hover:bg-[#5C0632] text-white text-xs font-bold uppercase tracking-widest rounded-xl transition-all shadow-md flex items-center justify-center space-x-2"
-                >
-                  <ShoppingBag className="w-4 h-4" />
-                  <span>BUY NOW</span>
-                </button>
-
+              <div className="flex">
                 <button
                   onClick={() => toggleWishlist(product)}
-                  className={`p-4 rounded-xl border transition-all flex items-center justify-center ${
+                  className={`flex-1 p-4 rounded-xl border transition-all flex items-center justify-center ${
                     isLiked
                       ? 'bg-[#5C0632] text-white border-[#5C0632]'
                       : 'bg-white text-[#4A154B] border-[#E8D5C4] hover:bg-[#FAF8F5]'
