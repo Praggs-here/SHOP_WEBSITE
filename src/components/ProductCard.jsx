@@ -2,14 +2,12 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Heart, Star } from 'lucide-react';
 import { useWishlist } from '../context/WishlistContext';
-import { useState } from 'react';
 
 // ProductCard displays a single product tile with image, category label, rating, price, and wishlist button.
 
 export default function ProductCard({ product }) {
   const { toggleWishlist, isInWishlist } = useWishlist();
   const navigate = useNavigate();
-  const [imgSrc, setImgSrc] = useState(product.image);
 
   const isLiked = isInWishlist(product.id);
 
@@ -39,14 +37,10 @@ export default function ProductCard({ product }) {
         <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#FAF8F5] p-3 flex items-center justify-center">
             <Link to={`/product/${product.id}`} className="block w-full h-full flex items-center justify-center" aria-hidden>
               <img
-                src={imgSrc}
+                src={product.image}
                 alt={product.name}
                 className="w-[90%] h-[90%] object-cover object-center rounded-[1rem] mx-auto transform group-hover:scale-[1.03] transition-transform duration-700 shadow-sm"
                 loading="lazy"
-                onMouseEnter={() => product.gallery && product.gallery[1] && setImgSrc(product.gallery[1])}
-                onMouseLeave={() => setImgSrc(product.image)}
-                onFocus={() => product.gallery && product.gallery[1] && setImgSrc(product.gallery[1])}
-                onBlur={() => setImgSrc(product.image)}
               />
             </Link>
 

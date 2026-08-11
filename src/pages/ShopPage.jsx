@@ -243,14 +243,10 @@ export default function ShopPage() {
                   <ProductCard key={p.id} product={p} />
                 ))}
               </div>
-            
-              </div>
             )}
           </div>
 
         </div>
-
-      </div>
 
       </div>
       <QuickView />
