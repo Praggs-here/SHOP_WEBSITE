@@ -1,12 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Heart, Star } from 'lucide-react';
 import { useWishlist } from '../context/WishlistContext';
+import { useState } from 'react';
 
 // ProductCard displays a single product tile with image, category label, rating, price, and wishlist button.
 
 export default function ProductCard({ product }) {
   const { toggleWishlist, isInWishlist } = useWishlist();
+  const navigate = useNavigate();
+  const [imgSrc, setImgSrc] = useState(product.image);
 
   const isLiked = isInWishlist(product.id);
 
@@ -16,18 +19,36 @@ export default function ProductCard({ product }) {
     toggleWishlist(product);
   };
 
+  const handleNavigate = () => {
+    navigate(`/product/${product.id}`);
+  };
+
+  const onKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') handleNavigate();
+  };
+
   return (
-      <div className="group relative rounded-2xl overflow-hidden bg-[#FFFDF9] border border-[#E8D5C4]/60 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col justify-between h-full">
+      <div
+        role="button"
+        tabIndex={0}
+        onClick={handleNavigate}
+        onKeyDown={onKeyDown}
+        className="group relative rounded-2xl overflow-hidden bg-[#FFFDF9] border border-[#E8D5C4]/60 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col justify-between h-full focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/40"
+      >
         {/* Top Image Box */}
         <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#FAF8F5] p-3 flex items-center justify-center">
-          <Link to={`/product/${product.id}`} className="block w-full h-full flex items-center justify-center">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="w-[90%] h-[90%] object-cover object-center rounded-[1rem] mx-auto transform group-hover:scale-[1.03] transition-transform duration-700 shadow-sm"
-              loading="lazy"
-            />
-          </Link>
+            <Link to={`/product/${product.id}`} className="block w-full h-full flex items-center justify-center" aria-hidden>
+              <img
+                src={imgSrc}
+                alt={product.name}
+                className="w-[90%] h-[90%] object-cover object-center rounded-[1rem] mx-auto transform group-hover:scale-[1.03] transition-transform duration-700 shadow-sm"
+                loading="lazy"
+                onMouseEnter={() => product.gallery && product.gallery[1] && setImgSrc(product.gallery[1])}
+                onMouseLeave={() => setImgSrc(product.image)}
+                onFocus={() => product.gallery && product.gallery[1] && setImgSrc(product.gallery[1])}
+                onBlur={() => setImgSrc(product.image)}
+              />
+            </Link>
 
           {/* Badges */}
           <div className="absolute top-3 left-3 flex flex-col space-y-1 z-10">

@@ -1,8 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, ShieldCheck, HeartHandshake } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 
 export default function Hero() {
+  const scrollToCollections = (e) => {
+    e && e.preventDefault && e.preventDefault();
+    const el = document.getElementById('collections');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   return (
     <section className="relative overflow-hidden bg-[#FAF8F5] pt-6 pb-12 sm:pt-12 sm:pb-20 border-b border-[#E8D5C4]/40">
       {/* Decorative Gold Glow Accents */}
@@ -11,7 +17,7 @@ export default function Hero() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          
+
           {/* Left Text Column */}
           <div className="lg:col-span-6 text-center lg:text-left space-y-6 sm:space-y-8 animate-slide-up">
             <div className="inline-flex items-center px-4 py-1.5 bg-[#FFFDF9] border border-[#D4AF37]/50 rounded-full text-[#4A154B] text-xs font-semibold tracking-widest uppercase shadow-sm">
@@ -22,25 +28,25 @@ export default function Hero() {
               <span className="text-xs sm:text-sm font-semibold tracking-[0.3em] text-[#9B6B82] uppercase block">
                 RC Jain's OM DIVINE INSPIRATIONS
               </span>
-              <h1 className="font-serif-custom text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#4A154B] leading-[1.15]">
-                WHERE TRADITION <br className="hidden sm:inline" />
-                <span className="italic font-normal text-[#C5A059]">MEETS TRENDS</span>
+              <h1 className="font-serif-custom text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#4A154B] leading-[1.05]">
+                Timeless Ethnic Elegance
               </h1>
             </div>
 
             <p className="text-base sm:text-lg text-[#5C524E] leading-relaxed max-w-xl mx-auto lg:mx-0">
-              Discover elegant ethnic wear, contemporary styles and timeless fashion for every occasion. From royal silk sarees and festive lehengas to fusion co-ords and comfortable plus-size outfits.
+              Discover thoughtfully curated ethnic wear that celebrates tradition, craftsmanship, and timeless style.
             </p>
 
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-              <Link
-                to="/shop"
+              <button
+                onClick={scrollToCollections}
+                aria-label="Shop Collection - scroll to collections"
                 className="w-full sm:w-auto px-8 py-4 bg-[#4A154B] hover:bg-[#5C0632] text-white text-xs sm:text-sm font-bold uppercase tracking-widest rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center group"
               >
                 <span>SHOP COLLECTION</span>
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              
+              </button>
+
               <Link
                 to="/shop"
                 className="w-full sm:w-auto px-8 py-4 bg-[#FFFDF9] hover:bg-[#F5F0EB] text-[#4A154B] border border-[#D9C8B4] text-xs sm:text-sm font-bold uppercase tracking-widest rounded-full transition-all duration-300 shadow-sm flex items-center justify-center"

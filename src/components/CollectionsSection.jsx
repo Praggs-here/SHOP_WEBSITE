@@ -5,7 +5,7 @@ import { collections } from '../data/collections';
 
 export default function CollectionsSection() {
   return (
-    <section className="py-16 sm:py-24 bg-[#FAF8F5]">
+    <section id="collections" className="py-16 sm:py-24 bg-[#FAF8F5]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -15,10 +15,10 @@ export default function CollectionsSection() {
               CURATED EDITS & LOOKBOOKS
             </span>
             <h2 className="font-serif-custom text-3xl sm:text-4xl lg:text-5xl font-bold text-[#4A154B]">
-              FESTIVE & ETHNIC COLLECTIONS
+              Explore Our Collection
             </h2>
             <p className="text-sm text-[#5C524E] max-w-lg">
-              Explore hand-selected edits for weddings, daily comfort, summer days, and plus-size elegance.
+              Discover elegant styles for every celebration, occasion, and everyday moment.
             </p>
           </div>
 
