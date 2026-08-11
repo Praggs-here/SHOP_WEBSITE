@@ -90,6 +90,9 @@ export default function Navbar({ onOpenSearch }) {
             <span className="text-[10px] sm:text-xs tracking-[0.2em] text-[#9B6B82] uppercase font-medium">
               The Ethnic Store
             </span>
+            <span className="text-[10px] sm:text-xs tracking-[0.2em] text-[#9B6B82] uppercase font-medium">
+              Wherer Tradition meets Trends
+            </span>
           </Link>
 
           {/* Desktop Navigation Links */}
