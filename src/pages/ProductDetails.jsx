@@ -17,6 +17,34 @@ export default function ProductDetails() {
   const [selectedColor, setSelectedColor] = useState(product.colors ? product.colors[0] : 'Default');
   const [activeTab, setActiveTab] = useState('details');
 
+  const isLiked = isInWishlist(product.id);
+
+  const galleryButtonClass = (isActive) => `w-20 h-24 rounded-xl overflow-hidden border-2 transition-all flex-shrink-0 ${
+    isActive
+      ? 'border-[#4A154B] ring-2 ring-[#4A154B]/20'
+      : 'border-[#E8D5C4] opacity-70 hover:opacity-100'
+  }`;
+
+  const sizeButtonClass = (sz) => `px-4 py-2 text-xs font-bold rounded-xl border transition-all ${
+    selectedSize === sz
+      ? 'bg-[#4A154B] text-white border-[#4A154B] shadow-sm'
+      : 'bg-white text-[#4A154B] border-[#E8D5C4] hover:border-[#4A154B]'
+  }`;
+
+  const colorButtonClass = (c) => `px-3 py-1.5 text-xs font-semibold rounded-full border transition-all ${
+    selectedColor === c
+      ? 'bg-[#F4DCD9] text-[#4A154B] border-[#4A154B] font-bold'
+      : 'bg-white text-[#5C524E] border-[#E8D5C4]'
+  }`;
+
+  const actionButtonClass = isLiked
+    ? 'flex-1 p-4 rounded-xl border transition-all flex items-center justify-center bg-[#5C0632] text-white border-[#5C0632]'
+    : 'flex-1 p-4 rounded-xl border transition-all flex items-center justify-center bg-white text-[#4A154B] border-[#E8D5C4] hover:bg-[#FAF8F5]';
+
+  const tabButtonClass = (tab) => `pb-4 text-sm font-bold uppercase tracking-wider relative transition-colors ${
+    activeTab === tab ? 'text-[#4A154B]' : 'text-[#7A4C62]'
+  }`;
+
   useEffect(() => {
     if (product) {
       setActiveImage(product.image);
@@ -73,11 +101,7 @@ export default function ProductDetails() {
                   <button
                     key={idx}
                     onClick={() => setActiveImage(img)}
-                    className={`w-20 h-24 rounded-xl overflow-hidden border-2 transition-all flex-shrink-0 ${
-                      activeImage === img
-                        ? 'border-[#4A154B] ring-2 ring-[#4A154B]/20'
-                        : 'border-[#E8D5C4] opacity-70 hover:opacity-100'
-                    }`}
+                    className={galleryButtonClass(activeImage === img)}
                   >
                     <img src={img} alt="" className="w-full h-full object-cover" />
                   </button>
@@ -135,11 +159,7 @@ export default function ProductDetails() {
                       <button
                         key={sz}
                         onClick={() => setSelectedSize(sz)}
-                        className={`px-4 py-2 text-xs font-bold rounded-xl border transition-all ${
-                          selectedSize === sz
-                            ? 'bg-[#4A154B] text-white border-[#4A154B] shadow-sm'
-                            : 'bg-white text-[#4A154B] border-[#E8D5C4] hover:border-[#4A154B]'
-                        }`}
+                        className={sizeButtonClass(sz)}
                       >
                         {sz}
                       </button>
@@ -159,11 +179,7 @@ export default function ProductDetails() {
                       <button
                         key={c}
                         onClick={() => setSelectedColor(c)}
-                        className={`px-3 py-1.5 text-xs font-semibold rounded-full border transition-all ${
-                          selectedColor === c
-                            ? 'bg-[#F4DCD9] text-[#4A154B] border-[#4A154B] font-bold'
-                            : 'bg-white text-[#5C524E] border-[#E8D5C4]'
-                        }`}
+                        className={colorButtonClass(c)}
                       >
                         {c}
                       </button>
@@ -179,14 +195,10 @@ export default function ProductDetails() {
               <div className="flex">
                 <button
                   onClick={() => toggleWishlist(product)}
-                  className={`flex-1 p-4 rounded-xl border transition-all flex items-center justify-center ${
-                    isLiked
-                      ? 'bg-[#5C0632] text-white border-[#5C0632]'
-                      : 'bg-white text-[#4A154B] border-[#E8D5C4] hover:bg-[#FAF8F5]'
-                  }`}
+                  className={actionButtonClass}
                   title="Wishlist"
                 >
-                  <Heart className={`w-5 h-5 ${isLiked ? 'fill-current' : ''}`} />
+                  <Heart className={isLiked ? 'w-5 h-5 fill-current' : 'w-5 h-5'} />
                 </button>
               </div>
 
@@ -216,18 +228,14 @@ export default function ProductDetails() {
           <div className="flex border-b border-[#F4EBE2] space-x-8">
             <button
               onClick={() => setActiveTab('details')}
-              className={`pb-4 text-sm font-bold uppercase tracking-wider relative transition-colors ${
-                activeTab === 'details' ? 'text-[#4A154B]' : 'text-[#7A4C62]'
-              }`}
+              className={tabButtonClass('details')}
             >
               Product Specifications
               {activeTab === 'details' && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#D4AF37]"></span>}
             </button>
             <button
               onClick={() => setActiveTab('care')}
-              className={`pb-4 text-sm font-bold uppercase tracking-wider relative transition-colors ${
-                activeTab === 'care' ? 'text-[#4A154B]' : 'text-[#7A4C62]'
-              }`}
+              className={tabButtonClass('care')}
             >
               Care & Fabric
               {activeTab === 'care' && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#D4AF37]"></span>}

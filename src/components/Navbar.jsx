@@ -10,6 +10,18 @@ export default function Navbar({ onOpenSearch }) {
 
   const { wishlistCount } = useWishlist();
 
+  const navContainerClass = isScrolled
+    ? 'w-full transition-all duration-300 bg-[#FFFDF9]/95 backdrop-blur-md shadow-md py-3'
+    : 'w-full transition-all duration-300 bg-[#FFFDF9] border-b border-[#E8D5C4]/40 py-4';
+
+  const navLinkClass = (isActive) => `text-sm tracking-wider font-medium transition-all relative py-1 ${
+    isActive ? 'text-[#4A154B] font-semibold' : 'text-[#4A3F3B] hover:text-[#4A154B]'
+  }`;
+
+  const utilityButtonClass = 'p-2 text-[#4A154B] hover:text-[#B38F38] transition-colors relative';
+
+  const mobileLinkClass = 'text-base font-medium text-[#4A3F3B] hover:text-[#4A154B] hover:pl-2 transition-all py-1 border-b border-[#F4EBE2]';
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -53,11 +65,7 @@ export default function Navbar({ onOpenSearch }) {
       </div>
 
       {/* Main Navigation Header */}
-      <nav className={`w-full transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-[#FFFDF9]/95 backdrop-blur-md shadow-md py-3' 
-          : 'bg-[#FFFDF9] border-b border-[#E8D5C4]/40 py-4'
-      }`}>
+      <nav className={navContainerClass}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
           {/* Mobile Menu Button */}
@@ -92,11 +100,7 @@ export default function Navbar({ onOpenSearch }) {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`text-sm tracking-wider font-medium transition-all relative py-1 ${
-                    isActive 
-                      ? 'text-[#4A154B] font-semibold' 
-                      : 'text-[#4A3F3B] hover:text-[#4A154B]'
-                  }`}
+                  className={navLinkClass(isActive)}
                 >
                   {link.name}
                   {isActive && (

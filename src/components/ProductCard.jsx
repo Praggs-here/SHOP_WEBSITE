@@ -11,6 +11,15 @@ export default function ProductCard({ product }) {
 
   const isLiked = isInWishlist(product.id);
 
+  const wishlistButtonClass = isLiked
+    ? 'absolute top-3 right-3 p-2.5 rounded-full backdrop-blur-md transition-all duration-300 z-10 shadow-sm bg-[#5C0632] text-white'
+    : 'absolute top-3 right-3 p-2.5 rounded-full backdrop-blur-md transition-all duration-300 z-10 shadow-sm bg-white/80 text-[#4A154B] hover:bg-white hover:scale-110';
+
+  const heartIconClass = `w-4 h-4 ${isLiked ? 'fill-current' : ''}`;
+
+  const badgeNewClass = 'px-2.5 py-1 bg-[#4A154B] text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow';
+  const badgeDiscountClass = 'px-2.5 py-1 bg-[#5C0632] text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow';
+
   const handleWishlistToggle = (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -57,12 +66,12 @@ export default function ProductCard({ product }) {
           {/* Badges */}
           <div className="absolute top-3 left-3 flex flex-col space-y-1 z-10">
             {product.isNew && (
-              <span className="px-2.5 py-1 bg-[#4A154B] text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow">
+              <span className={badgeNewClass}>
                 NEW
               </span>
             )}
             {product.discount && (
-              <span className="px-2.5 py-1 bg-[#5C0632] text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow">
+              <span className={badgeDiscountClass}>
                 {product.discount}
               </span>
             )}
@@ -71,15 +80,11 @@ export default function ProductCard({ product }) {
           {/* Top Right Wishlist Button */}
           <button
             onClick={handleWishlistToggle}
-            className={`absolute top-3 right-3 p-2.5 rounded-full backdrop-blur-md transition-all duration-300 z-10 shadow-sm ${
-              isLiked
-                ? 'bg-[#5C0632] text-white'
-                : 'bg-white/80 text-[#4A154B] hover:bg-white hover:scale-110'
-            }`}
+            className={wishlistButtonClass}
             title="Add to Wishlist"
             aria-label="Wishlist"
           >
-            <Heart className={`w-4 h-4 ${isLiked ? 'fill-current' : ''}`} />
+            <Heart className={heartIconClass} />
           </button>
 
         </div>

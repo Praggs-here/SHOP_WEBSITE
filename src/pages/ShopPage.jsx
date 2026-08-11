@@ -22,6 +22,18 @@ export default function ShopPage() {
   const [maxPrice, setMaxPrice] = useState(12000);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
+  const filterSectionClass = `lg:col-span-3 space-y-6 ${isMobileFilterOpen ? 'block' : 'hidden lg:block'}`;
+  const filterButtonClass = (isActive) => `w-full text-left px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+    isActive
+      ? 'bg-[#4A154B] text-white font-bold'
+      : 'text-[#5C524E] hover:bg-[#FAF8F5]'
+  }`;
+  const sizeFilterButtonClass = (isActive) => `px-2.5 py-1 text-xs font-bold rounded-lg border transition-all ${
+    isActive
+      ? 'bg-[#4A154B] text-white border-[#4A154B]'
+      : 'bg-white text-[#5C524E] border-[#E8D5C4] hover:border-[#4A154B]'
+  }`;
+
   useEffect(() => {
     setSelectedCategory(categoryParam);
   }, [categoryParam]);
@@ -122,7 +134,7 @@ export default function ShopPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           
           {/* Filter Sidebar (Desktop & Mobile Drawer) */}
-          <div className={`lg:col-span-3 space-y-6 ${isMobileFilterOpen ? 'block' : 'hidden lg:block'}`}>
+          <div className={filterSectionClass}>
             <div className="bg-[#FFFDF9] p-6 rounded-2xl border border-[#E8D5C4] shadow-sm space-y-6 sticky top-24">
               
               <div className="flex items-center justify-between pb-4 border-b border-[#F4EBE2]">
@@ -145,11 +157,7 @@ export default function ShopPage() {
                 <div className="space-y-1 max-h-60 overflow-y-auto pr-1">
                   <button
                     onClick={() => setSelectedCategory('all')}
-                    className={`w-full text-left px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                      selectedCategory === 'all'
-                        ? 'bg-[#4A154B] text-white font-bold'
-                        : 'text-[#5C524E] hover:bg-[#FAF8F5]'
-                    }`}
+                    className={filterButtonClass(selectedCategory === 'all')}
                   >
                     All Categories
                   </button>
@@ -157,11 +165,7 @@ export default function ShopPage() {
                     <button
                       key={c.id}
                       onClick={() => setSelectedCategory(c.id)}
-                      className={`w-full text-left px-3 py-1.5 rounded-lg text-xs font-medium transition-all flex justify-between ${
-                        selectedCategory === c.id
-                          ? 'bg-[#4A154B] text-white font-bold'
-                          : 'text-[#5C524E] hover:bg-[#FAF8F5]'
-                      }`}
+                      className={filterButtonClass(selectedCategory === c.id)}
                     >
                       <span>{c.name}</span>
                     </button>
@@ -179,11 +183,7 @@ export default function ShopPage() {
                     <button
                       key={s}
                       onClick={() => setSelectedSize(s)}
-                      className={`px-2.5 py-1 text-xs font-bold rounded-lg border transition-all ${
-                        selectedSize === s
-                          ? 'bg-[#4A154B] text-white border-[#4A154B]'
-                          : 'bg-white text-[#5C524E] border-[#E8D5C4] hover:border-[#4A154B]'
-                      }`}
+                      className={sizeFilterButtonClass(selectedSize === s)}
                     >
                       {s === 'all' ? 'All Sizes' : s}
                     </button>
