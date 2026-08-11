@@ -33,7 +33,7 @@ export default function ProductCard({ product }) {
         tabIndex={0}
         onClick={handleNavigate}
         onKeyDown={onKeyDown}
-        className="group relative rounded-2xl overflow-hidden bg-[#FFFDF9] border border-[#E8D5C4]/60 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col justify-between h-full focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/40"
+        className="group relative rounded-2xl overflow-hidden bg-[#FFFDF9] border border-[#E8D5C4]/60 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between h-full focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/40"
       >
         {/* Top Image Box */}
         <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#FAF8F5] p-3 flex items-center justify-center">
@@ -49,6 +49,16 @@ export default function ProductCard({ product }) {
                 onBlur={() => setImgSrc(product.image)}
               />
             </Link>
+
+            {/* Quick actions overlay (appears on hover / focus) */}
+            <div className="absolute inset-0 flex items-end justify-center p-3 pointer-events-none">
+              <div className="opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-auto w-full flex justify-center">
+                <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-2 border border-[#E8D5C4] shadow">
+                  <Link to={`/product/${product.id}`} onClick={(e)=>e.stopPropagation()} className="text-sm font-semibold text-[#4A154B]">View</Link>
+                  <button onClick={(e)=>{e.stopPropagation(); /* emit custom event for quick view if parent provided */ const evt = new CustomEvent('quickview', { detail: { productId: product.id } }); window.dispatchEvent(evt); }} className="text-sm font-semibold text-[#9B6B82]">Quick View</button>
+                </div>
+              </div>
+            </div>
 
           {/* Badges */}
           <div className="absolute top-3 left-3 flex flex-col space-y-1 z-10">

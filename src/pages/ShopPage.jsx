@@ -1,9 +1,10 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Filter, SlidersHorizontal, RotateCcw, Heart } from 'lucide-react';
+import { Filter, SlidersHorizontal, RotateCcw, Heart, Search } from 'lucide-react';
 import { products } from '../data/products';
 import { categories } from '../data/categories';
 import ProductCard from '../components/ProductCard';
+import QuickView from '../components/QuickView';
 import { useWishlist } from '../context/WishlistContext';
 
 export default function ShopPage() {
@@ -15,6 +16,8 @@ export default function ShopPage() {
   const isWishlistMode = searchParams.get('wishlist') === 'true';
 
   const [selectedCategory, setSelectedCategory] = useState(categoryParam);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [sortBy, setSortBy] = useState('featured');
   const [selectedSize, setSelectedSize] = useState('all');
   const [maxPrice, setMaxPrice] = useState(12000);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
@@ -29,6 +32,12 @@ export default function ShopPage() {
   const filteredProducts = useMemo(() => {
     let result = isWishlistMode ? wishlistItems : [...products];
 
+    // Search
+    if (searchQuery && searchQuery.trim().length > 0) {
+      const q = searchQuery.toLowerCase();
+      result = result.filter(p => p.name.toLowerCase().includes(q) || p.categoryName.toLowerCase().includes(q));
+    }
+
     // Category Filter
     if (selectedCategory !== 'all') {
       result = result.filter(p => p.category === selectedCategory || p.id === selectedCategory);
@@ -42,8 +51,14 @@ export default function ShopPage() {
     // Price Filter
     result = result.filter(p => p.price <= maxPrice);
 
+    // Sorting
+    if (sortBy === 'price-asc') result.sort((a,b)=>a.price - b.price);
+    else if (sortBy === 'price-desc') result.sort((a,b)=>b.price - a.price);
+    else if (sortBy === 'name') result.sort((a,b)=>a.name.localeCompare(b.name));
+    else if (sortBy === 'featured') result.sort((a,b)=> (b.isBestSeller?1:0) - (a.isBestSeller?1:0));
+
     return result;
-  }, [selectedCategory, selectedSize, maxPrice, isWishlistMode, wishlistItems]);
+  }, [selectedCategory, selectedSize, maxPrice, isWishlistMode, wishlistItems, searchQuery, sortBy]);
 
   const handleReset = () => {
     setSelectedCategory('all');
@@ -56,8 +71,15 @@ export default function ShopPage() {
     <div className="bg-[#FAF8F5] min-h-screen py-10 animate-fade-in">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
+        {/* Breadcrumb */}
+        <div className="text-xs text-[#7A4C62] mb-4">
+          <Link to="/" className="hover:text-[#4A154B]">Home</Link>
+          <span className="mx-2">/</span>
+          <Link to="/shop" className="font-bold text-[#4A154B]">Collections</Link>
+        </div>
+
         {/* Header Title */}
-        <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
+        <div className="text-center max-w-2xl mx-auto mb-6 space-y-2">
           <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#9B6B82]">
             {isWishlistMode ? 'SAVED FAVORITES' : 'EXPLORE CATALOG'}
           </span>
@@ -68,17 +90,33 @@ export default function ShopPage() {
         </div>
 
         {/* Toolbar Bar */}
-        <div className="bg-[#FFFDF9] p-4 rounded-2xl border border-[#E8D5C4] shadow-sm mb-8 flex items-center gap-4">
+        <div className="bg-[#FFFDF9] p-4 rounded-2xl border border-[#E8D5C4] shadow-sm mb-8 flex flex-col sm:flex-row items-center gap-4">
           <button
             onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
             className="lg:hidden px-4 py-2 bg-[#FAF8F5] text-[#4A154B] border border-[#E8D5C4] text-xs font-bold rounded-xl flex items-center"
           >
             <SlidersHorizontal className="w-4 h-4 mr-2" /> Filters
           </button>
+          <div className="w-full sm:w-1/2 flex items-center gap-2">
+            <Search className="w-4 h-4 text-[#9B6B82]" />
+            <input
+              type="search"
+              placeholder="Search products, categories..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full bg-white border border-[#E8D5C4] rounded-full px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/30"
+            />
+          </div>
 
-          <span className="text-xs font-bold text-[#7A4C62]">
-            Showing <strong className="text-[#4A154B]">{filteredProducts.length}</strong> items
-          </span>
+          <div className="w-full sm:w-1/2 flex items-center justify-end gap-3">
+            <div className="text-xs font-bold text-[#7A4C62]">Showing <strong className="text-[#4A154B]">{filteredProducts.length}</strong> items</div>
+            <select value={sortBy} onChange={(e)=>setSortBy(e.target.value)} className="text-sm bg-white border border-[#E8D5C4] rounded-full px-3 py-2">
+              <option value="featured">Featured</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="name">Name: A–Z</option>
+            </select>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -200,10 +238,12 @@ export default function ShopPage() {
                 </button>
               </div>
             ) : (
-              <div className="grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
                 {filteredProducts.map((p) => (
                   <ProductCard key={p.id} product={p} />
                 ))}
+              </div>
+            
               </div>
             )}
           </div>
@@ -211,6 +251,9 @@ export default function ShopPage() {
         </div>
 
       </div>
+
+      </div>
+      <QuickView />
     </div>
   );
 }
