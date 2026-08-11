@@ -7,14 +7,12 @@ import CollectionsSection from '../components/CollectionsSection';
 import WhyUs from '../components/WhyUs';
 import StoreLocation from '../components/StoreLocation';
 import Testimonials from '../components/Testimonials';
-import BenefitsStrip from '../components/BenefitsStrip';
 import BrandStory from '../components/BrandStory';
 
 export default function Home() {
   return (
     <div className="animate-fade-in">
       <Hero />
-      <BenefitsStrip />
       <CategoryGrid />
       <NewArrivalsSection />
       <PromotionBanner />
