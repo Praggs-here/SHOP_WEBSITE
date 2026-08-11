@@ -9,7 +9,6 @@ import StoreLocation from '../components/StoreLocation';
 import Testimonials from '../components/Testimonials';
 import BenefitsStrip from '../components/BenefitsStrip';
 import BrandStory from '../components/BrandStory';
-import ContactCTA from '../components/ContactCTA';
 
 export default function Home() {
   return (
@@ -23,7 +22,6 @@ export default function Home() {
       <BrandStory />
       <WhyUs />
       <StoreLocation />
-      <ContactCTA />
       <Testimonials />
     </div>
   );
