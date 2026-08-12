@@ -15,6 +15,7 @@ import ShopPage from './pages/ShopPage';
 import ProductDetails from './pages/ProductDetails';
 import CollectionsPage from './pages/CollectionsPage';
 import AboutPage from './pages/AboutPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 // Scroll to top helper component
 function ScrollToTop() {
@@ -50,7 +51,7 @@ export default function App() {
               <Route path="/product/:id" element={<ProductDetails />} />
               <Route path="/collections" element={<CollectionsPage />} />
               <Route path="/about" element={<AboutPage />} />
-              <Route path="*" element={<ShopPage />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </main>
 
