@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { Filter, SlidersHorizontal, RotateCcw, Heart, Search } from 'lucide-react';
 import { products } from '../data/products';
 import { categories } from '../data/categories';
