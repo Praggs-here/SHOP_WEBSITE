@@ -17,8 +17,6 @@ export default function ProductDetails() {
   const [selectedColor, setSelectedColor] = useState(product.colors ? product.colors[0] : 'Default');
   const [activeTab, setActiveTab] = useState('details');
 
-  const isLiked = isInWishlist(product.id);
-
   const galleryButtonClass = (isActive) => `w-20 h-24 rounded-xl overflow-hidden border-2 transition-all flex-shrink-0 ${
     isActive
       ? 'border-[#4A154B] ring-2 ring-[#4A154B]/20'
