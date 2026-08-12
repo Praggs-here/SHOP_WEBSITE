@@ -10,9 +10,9 @@ export default function ProductDetails() {
   
   const { toggleWishlist, isInWishlist } = useWishlist();
 
-  const product = products.find(p => p.id === id) || products[0];
+  const product = products.find(p => p.id === id);
 
-  const [activeImage, setActiveImage] = useState(product.image);
+  const [activeImage, setActiveImage] = useState(product?.image || '');
   const [selectedSize, setSelectedSize] = useState(product.sizes ? product.sizes[0] : 'Free Size');
   const [selectedColor, setSelectedColor] = useState(product.colors ? product.colors[0] : 'Default');
   const [activeTab, setActiveTab] = useState('details');
@@ -51,6 +51,38 @@ export default function ProductDetails() {
       window.scrollTo(0, 0);
     }
   }, [id, product]);
+
+  if (!product) {
+    return (
+      <div className="bg-[#FAF8F5] min-h-screen py-16 animate-fade-in">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#4A154B]/10 text-[#4A154B] mx-auto mb-8">
+            <span className="text-3xl font-bold">404</span>
+          </div>
+          <h1 className="font-serif-custom text-4xl sm:text-5xl font-bold text-[#4A154B] mb-4">
+            Product Not Found
+          </h1>
+          <p className="text-sm sm:text-base text-[#5C524E] max-w-2xl mx-auto mb-8 leading-relaxed">
+            We couldn't find the product you were looking for. Please try again from the shop page or choose another item.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              to="/"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#4A154B] text-white font-bold uppercase tracking-[0.18em] hover:bg-[#5C0632] transition-all"
+            >
+              Home
+            </Link>
+            <Link
+              to="/shop"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-[#4A154B] text-[#4A154B] font-bold uppercase tracking-[0.18em] hover:bg-[#FAF8F5] transition-all"
+            >
+              Shop Catalogue
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const isLiked = isInWishlist(product.id);
 

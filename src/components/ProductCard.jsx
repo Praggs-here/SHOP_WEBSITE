@@ -6,6 +6,8 @@ import { useWishlist } from '../context/WishlistContext';
 // ProductCard displays a single product tile with image, category label, rating, price, and wishlist button.
 
 export default function ProductCard({ product }) {
+  if (!product) return null;
+
   const { toggleWishlist, isInWishlist } = useWishlist();
   const navigate = useNavigate();
 

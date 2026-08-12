@@ -249,7 +249,6 @@ export default function ShopPage() {
         </div>
 
       </div>
-      <QuickView />
     </div>
   );
 }
