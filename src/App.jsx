@@ -6,7 +6,6 @@ import { WishlistProvider } from './context/WishlistContext';
 import Navbar from './components/Navbar';
 import AnnouncementPopup from './components/AnnouncementPopup';
 import SearchOverlay from './components/SearchOverlay';
-import QuickView from './components/QuickView';
 import Footer from './components/Footer';
 
 // The core App component renders the site shell with routing, global overlays, and shared wishlist state.
@@ -58,7 +57,6 @@ export default function App() {
 
           {/* Global Floating Overlays */}
           <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
-          <QuickView />
 
           {/* Global Footer */}
           <Footer />

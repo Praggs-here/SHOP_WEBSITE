@@ -4,7 +4,6 @@ import { Filter, SlidersHorizontal, RotateCcw, Heart, Search } from 'lucide-reac
 import { products } from '../data/products';
 import { categories } from '../data/categories';
 import ProductCard from '../components/ProductCard';
-import QuickView from '../components/QuickView';
 import { useWishlist } from '../context/WishlistContext';
 
 export default function ShopPage() {

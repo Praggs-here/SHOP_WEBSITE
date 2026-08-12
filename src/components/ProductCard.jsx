@@ -60,7 +60,6 @@ export default function ProductCard({ product }) {
               <div className="opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-auto w-full flex justify-center">
                 <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-2 border border-[#E8D5C4] shadow">
                   <Link to={`/product/${product.id}`} onClick={(e)=>e.stopPropagation()} className="text-sm font-semibold text-[#4A154B]">View</Link>
-                  <button onClick={(e)=>{e.stopPropagation(); /* emit custom event for quick view if parent provided */ const evt = new CustomEvent('quickview', { detail: { productId: product.id } }); window.dispatchEvent(evt); }} className="text-sm font-semibold text-[#9B6B82]">Quick View</button>
                 </div>
               </div>
             </div>
