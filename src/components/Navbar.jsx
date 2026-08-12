@@ -21,7 +21,6 @@ export default function Navbar({ onOpenSearch }) {
   const utilityButtonClass = 'p-2 text-[#4A154B] hover:text-[#B38F38] transition-colors relative';
 
   const mobileLinkClass = 'text-base font-medium text-[#4A3F3B] hover:text-[#4A154B] hover:pl-2 transition-all py-1 border-b border-[#F4EBE2]';
-  const brandTitleClass = 'font-serif-custom text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-[#4A154B] leading-tight group-hover:text-[#B38F38] transition-colors';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,7 +84,7 @@ export default function Navbar({ onOpenSearch }) {
             <span className="text-[10px] sm:text-xs tracking-[0.25em] text-[#7A4C62] uppercase font-semibold">
               RC Jain's
             </span>
-            <span className={brandTitleClass}>
+            <span className="font-serif-custom text-lg sm:text-xl lg:text-2xl font-bold tracking-tight text-[#4A154B] leading-tight group-hover:text-[#B38F38] transition-colors">
               OM DIVINE INSPIRATIONS
             </span>
             <span className="text-[10px] sm:text-xs tracking-[0.2em] text-[#9B6B82] uppercase font-medium">
