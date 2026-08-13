@@ -79,7 +79,7 @@ export default function Hero() {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-[#FFFDF9] group">
                 <img
                   src="/images/hero_banner.png"
-                  alt="R. C. Jain's OM DIVINE INSPIRATIONS Ethnic Fashion"
+                  alt="RC Jain's OM DIVINE INSPIRATIONS Ethnic Fashion"
                   className="w-full h-[420px] sm:h-[500px] object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#4A154B]/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
