@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Heart, Star } from 'lucide-react';
 import { useWishlist } from '../context/WishlistContext';
+import { toProductRouteId } from '../data/products';
 
 // ProductCard displays a single product tile with image, category label, rating, price, and wishlist button.
 
@@ -29,7 +30,7 @@ export default function ProductCard({ product }) {
   };
 
   const handleNavigate = () => {
-    navigate(`/product/${product.id}`);
+    navigate(`/product/${toProductRouteId(product.id)}`);
   };
 
   const onKeyDown = (e) => {
@@ -46,7 +47,7 @@ export default function ProductCard({ product }) {
       >
         {/* Top Image Box */}
         <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#FAF8F5] p-3 flex items-center justify-center">
-            <Link to={`/product/${product.id}`} className="block w-full h-full flex items-center justify-center" aria-hidden>
+            <Link to={`/product/${toProductRouteId(product.id)}`} className="block w-full h-full flex items-center justify-center" aria-hidden>
               <img
                 src={product.image}
                 alt={product.name}
@@ -59,7 +60,7 @@ export default function ProductCard({ product }) {
             <div className="absolute inset-0 flex items-end justify-center p-3 pointer-events-none">
               <div className="opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-auto w-full flex justify-center">
                 <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-2 border border-[#E8D5C4] shadow">
-                  <Link to={`/product/${product.id}`} onClick={(e)=>e.stopPropagation()} className="text-sm font-semibold text-[#4A154B]">View</Link>
+                  <Link to={`/product/${toProductRouteId(product.id)}`} onClick={(e)=>e.stopPropagation()} className="text-sm font-semibold text-[#4A154B]">View</Link>
                 </div>
               </div>
             </div>
@@ -103,7 +104,7 @@ export default function ProductCard({ product }) {
               </div>
             </div>
 
-            <Link to={`/product/${product.id}`}>
+            <Link to={`/product/${toProductRouteId(product.id)}`}>
               <h3 className="font-serif-custom text-base font-bold text-[#4A154B] line-clamp-1 group-hover:text-[#B38F38] transition-colors">
                 {product.name}
               </h3>

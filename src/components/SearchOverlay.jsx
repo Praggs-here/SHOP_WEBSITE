@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Search, X, ArrowRight, Tag } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
-import { products } from '../data/products';
+import { products, toProductRouteId } from '../data/products';
 
 export default function SearchOverlay({ isOpen, onClose }) {
   const [query, setQuery] = useState('');
@@ -37,7 +37,7 @@ export default function SearchOverlay({ isOpen, onClose }) {
 
   const handleSelectProduct = (id) => {
     onClose();
-    navigate(`/product/${id}`);
+    navigate(`/product/${toProductRouteId(id)}`);
   };
 
   const handleTagClick = (tag) => {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Star, Heart, ShieldCheck, Truck, RotateCcw, Check, Sparkles } from 'lucide-react';
-import { products } from '../data/products';
+import { products, normalizeProductId } from '../data/products';
 import { useWishlist } from '../context/WishlistContext';
 import ProductCard from '../components/ProductCard';
 
@@ -10,11 +10,11 @@ export default function ProductDetails() {
   
   const { toggleWishlist, isInWishlist } = useWishlist();
 
-  const product = products.find(p => p.id === id);
+  const product = products.find((p) => normalizeProductId(p.id) === normalizeProductId(id));
 
   const [activeImage, setActiveImage] = useState(product?.image || '');
-  const [selectedSize, setSelectedSize] = useState(product.sizes ? product.sizes[0] : 'Free Size');
-  const [selectedColor, setSelectedColor] = useState(product.colors ? product.colors[0] : 'Default');
+  const [selectedSize, setSelectedSize] = useState(product?.sizes?.[0] || 'Free Size');
+  const [selectedColor, setSelectedColor] = useState(product?.colors?.[0] || 'Default');
   const [activeTab, setActiveTab] = useState('details');
 
   const galleryButtonClass = (isActive) => `w-20 h-24 rounded-xl overflow-hidden border-2 transition-all flex-shrink-0 ${
@@ -34,6 +34,8 @@ export default function ProductDetails() {
       ? 'bg-[#F4DCD9] text-[#4A154B] border-[#4A154B] font-bold'
       : 'bg-white text-[#5C524E] border-[#E8D5C4]'
   }`;
+
+  const isLiked = product ? isInWishlist(product.id) : false;
 
   const actionButtonClass = isLiked
     ? 'flex-1 p-4 rounded-xl border transition-all flex items-center justify-center bg-[#5C0632] text-white border-[#5C0632]'
@@ -83,8 +85,6 @@ export default function ProductDetails() {
       </div>
     );
   }
-
-  const isLiked = isInWishlist(product.id);
 
   const relatedProducts = products
     .filter(p => p.category === product.category && p.id !== product.id)

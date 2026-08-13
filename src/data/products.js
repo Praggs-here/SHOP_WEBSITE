@@ -1,3 +1,23 @@
+export const normalizeProductId = (value = '') => {
+  const normalized = String(value || '').trim();
+
+  if (!normalized) return normalized;
+
+  const productMatch = normalized.match(/^product-(\d+)$/i);
+  if (productMatch) return `prod-${productMatch[1]}`;
+
+  const legacyMatch = normalized.match(/^prod-(\d+)$/i);
+  if (legacyMatch) return `prod-${legacyMatch[1]}`;
+
+  return normalized;
+};
+
+export const toProductRouteId = (value = '') => {
+  const normalized = normalizeProductId(value);
+  const match = normalized.match(/^prod-(\d+)$/i);
+  return match ? `product-${match[1]}` : normalized;
+};
+
 export const products = [
   {
     id: "prod-1",

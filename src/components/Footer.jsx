@@ -127,11 +127,6 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#F4DCD9]/70 space-y-4 sm:space-y-0">
           <p>© 2026 OM DIVINE INSPIRATIONS. All Rights Reserved.</p>
-          <p className="flex items-center">
-            <span>Crafted with</span>
-            <Heart className="w-3.5 h-3.5 text-[#D4AF37] mx-1 fill-current" />
-            <span>for Women's Ethnic Fashion</span>
-          </p>
         </div>
 
       </div>
