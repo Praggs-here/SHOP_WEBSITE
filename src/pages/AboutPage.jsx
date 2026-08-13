@@ -9,13 +9,13 @@ export default function AboutPage() {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#9B6B82]">
+          <span className="text-xs uppercase tracking-[0.2em] text-[#9B6B82]">
             Our Story & Heritage
           </span>
-          <h3 className="text-4xl sm:text-5xl font-bold text-[#4A154B]">
+          <h3 className="text-4xl sm:text-5xl text-[#4A154B]">
             RC Jain
           </h3>
-          <h1 className="text-4xl sm:text-5xl font-bold text-[#4A154B]">
+          <h1 className="text-4xl sm:text-5xl text-[#4A154B]">
             Om Divine Inspirations
           </h1>
           <p className="italic text-lg text-[#C5A059]">
