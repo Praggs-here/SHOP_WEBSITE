@@ -12,10 +12,10 @@ export default function AboutPage() {
           <span className="text-xs uppercase tracking-[0.2em] text-[#9B6B82]">
             Our Story & Heritage
           </span>
-          <h3 className="text-4xl sm:text-5xl text-[#4A154B]">
+          <h3 className="font-serif-custom text-4xl sm:text-5xl text-[#4A154B]">
             RC Jain
           </h3>
-          <h1 className="text-4xl sm:text-5xl text-[#4A154B]">
+          <h1 className="font-serif-custom text-4xl sm:text-5xl text-[#4A154B]">
             Om Divine Inspirations
           </h1>
           <p className="italic text-lg text-[#C5A059]">
@@ -31,7 +31,7 @@ export default function AboutPage() {
               <Sparkles className="w-3.5 h-3.5 mr-1" /> The Ethnic Store
             </div>
             
-            <h2 className="text-3xl font-bold text-[#4A154B] leading-tight">
+            <h2 className="font-serif-custom text-3xl font-bold text-[#4A154B] leading-tight">
               Bringing together Indian tradition and modern women’s fashion
             </h2>
 
@@ -64,7 +64,7 @@ export default function AboutPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#4A154B]/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
                 <span className="text-xs font-bold text-[#D4AF37] uppercase tracking-wide">New Delhi Boutique</span>
-                <h3 className="text-2xl font-bold">R. C. Jain Ethnic Boutique</h3>
+                <h3 className="font-serif-custom text-2xl font-bold">R. C. Jain Ethnic Boutique</h3>
               </div>
             </div>
           </div>
