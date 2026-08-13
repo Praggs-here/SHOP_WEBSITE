@@ -35,10 +35,10 @@ export default function WhyUs() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-3">
-          <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#9B6B82]">
+          <span className="text-xs font-normal uppercase tracking-[0.25em] text-[#9B6B82]">
             THE BOUTIQUE EXPERIENCE
           </span>
-          <h2 className="font-serif-custom text-3xl sm:text-4xl font-bold text-[#4A154B]">
+          <h2 className="font-serif-custom text-3xl sm:text-4xl font-normal text-[#4A154B]">
             WHY OM DIVINE INSPIRATIONS?
           </h2>
           <div className="w-16 h-[2px] bg-[#D4AF37] mx-auto my-3"></div>
@@ -58,7 +58,7 @@ export default function WhyUs() {
                 <div className="w-12 h-12 rounded-2xl bg-[#FFFDF9] border border-[#D4AF37]/40 flex items-center justify-center text-[#4A154B] group-hover:bg-[#4A154B] group-hover:text-[#D4AF37] transition-colors mb-4 shadow-sm">
                   <Icon className="w-6 h-6" />
                 </div>
-                <h3 className="font-serif-custom text-lg font-bold text-[#4A154B] mb-2">
+                <h3 className="font-serif-custom text-lg font-normal text-[#4A154B] mb-2">
                   {item.title}
                 </h3>
                 <p className="text-xs text-[#5C524E] leading-relaxed">

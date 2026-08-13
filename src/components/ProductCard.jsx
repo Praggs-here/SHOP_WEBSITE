@@ -20,8 +20,8 @@ export default function ProductCard({ product }) {
 
   const heartIconClass = `w-4 h-4 ${isLiked ? 'fill-current' : ''}`;
 
-  const badgeNewClass = 'px-2.5 py-1 bg-[#4A154B] text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow';
-  const badgeDiscountClass = 'px-2.5 py-1 bg-[#5C0632] text-white text-[10px] font-bold uppercase tracking-wider rounded-full shadow';
+  const badgeNewClass = 'px-2.5 py-1 bg-[#4A154B] text-white text-[10px] font-normal uppercase tracking-wider rounded-full shadow';
+  const badgeDiscountClass = 'px-2.5 py-1 bg-[#5C0632] text-white text-[10px] font-normal uppercase tracking-wider rounded-full shadow';
 
   const handleWishlistToggle = (e) => {
     e.preventDefault();
@@ -60,7 +60,7 @@ export default function ProductCard({ product }) {
             <div className="absolute inset-0 flex items-end justify-center p-3 pointer-events-none">
               <div className="opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-auto w-full flex justify-center">
                 <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-2 border border-[#E8D5C4] shadow">
-                  <Link to={`/product/${toProductRouteId(product.id)}`} onClick={(e)=>e.stopPropagation()} className="text-sm font-semibold text-[#4A154B]">View</Link>
+                  <Link to={`/product/${toProductRouteId(product.id)}`} onClick={(e)=>e.stopPropagation()} className="text-sm font-normal text-[#4A154B]">View</Link>
                 </div>
               </div>
             </div>
@@ -95,17 +95,17 @@ export default function ProductCard({ product }) {
         <div className="p-4 flex flex-col justify-between flex-grow">
           <div>
             <div className="flex items-center justify-between text-xs text-[#7A4C62] mb-1">
-              <span className="uppercase tracking-wider font-semibold text-[10px]">
+              <span className="uppercase tracking-wider font-normal text-[10px]">
                 {product.categoryName}
               </span>
               <div className="flex items-center text-[#D4AF37]">
                 <Star className="w-3.5 h-3.5 fill-current" />
-                <span className="text-[11px] font-bold text-[#4A154B] ml-1">{product.rating}</span>
+                <span className="text-[11px] font-normal text-[#4A154B] ml-1">{product.rating}</span>
               </div>
             </div>
 
             <Link to={`/product/${toProductRouteId(product.id)}`}>
-              <h3 className="font-serif-custom text-base font-bold text-[#4A154B] line-clamp-1 group-hover:text-[#B38F38] transition-colors">
+              <h3 className="font-serif-custom text-base font-normal text-[#4A154B] line-clamp-1 group-hover:text-[#B38F38] transition-colors">
                 {product.name}
               </h3>
             </Link>
@@ -113,7 +113,7 @@ export default function ProductCard({ product }) {
 
           <div className="mt-3 pt-3 border-t border-[#F4EBE2] flex items-center justify-between">
             <div className="flex items-baseline space-x-2">
-              <span className="text-base font-bold text-[#4A154B]">₹{product.price.toLocaleString()}</span>
+              <span className="text-base font-normal text-[#4A154B]">₹{product.price.toLocaleString()}</span>
               {product.oldPrice && (
                 <span className="text-xs text-[#9B6B82] line-through">
                   ₹{product.oldPrice.toLocaleString()}

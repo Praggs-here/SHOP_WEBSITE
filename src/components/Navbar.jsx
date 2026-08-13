@@ -14,13 +14,13 @@ export default function Navbar({ onOpenSearch }) {
     ? 'w-full transition-all duration-300 bg-[#FFFDF9]/95 backdrop-blur-md shadow-md py-3'
     : 'w-full transition-all duration-300 bg-[#FFFDF9] border-b border-[#E8D5C4]/40 py-4';
 
-  const navLinkClass = (isActive) => `text-sm tracking-wider font-medium transition-all relative py-1 ${
-    isActive ? 'text-[#4A154B] font-semibold' : 'text-[#4A3F3B] hover:text-[#4A154B]'
+  const navLinkClass = (isActive) => `text-sm tracking-wider font-normal transition-all relative py-1 ${
+    isActive ? 'text-[#4A154B]' : 'text-[#4A3F3B] hover:text-[#4A154B]'
   }`;
 
   const utilityButtonClass = 'p-2 text-[#4A154B] hover:text-[#B38F38] transition-colors relative';
 
-  const mobileLinkClass = 'text-base font-medium text-[#4A3F3B] hover:text-[#4A154B] hover:pl-2 transition-all py-1 border-b border-[#F4EBE2]';
+  const mobileLinkClass = 'text-base font-normal text-[#4A3F3B] hover:text-[#4A154B] hover:pl-2 transition-all py-1 border-b border-[#F4EBE2]';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,7 +51,7 @@ export default function Navbar({ onOpenSearch }) {
   return (
     <header className="sticky top-0 z-40 w-full transition-all duration-300">
       {/* Top Announcement Bar */}
-      <div className="bg-[#4A154B] text-[#FAF8F5] text-xs py-2 px-4 text-center tracking-wide font-medium flex justify-between items-center max-w-7xl mx-auto hidden sm:flex">
+      <div className="bg-[#4A154B] text-[#FAF8F5] text-xs py-2 px-4 text-center tracking-wide font-normal flex justify-between items-center max-w-7xl mx-auto hidden sm:flex">
         <div className="flex items-center space-x-4 text-xs opacity-90">
           <span className="flex items-center"><MapPin className="w-3 h-3 mr-1 text-[#D4AF37]" /> Mahavir Enclave, Palam, New Delhi</span>
           <a href="tel:9319325840" className="flex items-center hover:text-[#D4AF37] transition-colors"><Phone className="w-3 h-3 mr-1 text-[#D4AF37]" /> 9319325840</a>
@@ -59,7 +59,7 @@ export default function Navbar({ onOpenSearch }) {
         <div className="font-serif-custom italic text-sm text-[#F4DCD9]">
           Om Divine Inspirations — Where Tradition meets Trends
         </div>
-        <div className="text-xs text-[#D4AF37] font-semibold tracking-wider uppercase">
+        <div className="text-xs text-[#D4AF37] font-normal tracking-wider uppercase">
           Plus Sizes Available • XL to 4XL
         </div>
       </div>
@@ -81,13 +81,13 @@ export default function Navbar({ onOpenSearch }) {
 
           {/* Logo / Brand Header */}
           <Link to="/" className="flex flex-col items-center lg:items-start text-center lg:text-left group">
-            <span className="text-[10px] sm:text-xs tracking-[0.25em] text-[#7A4C62] uppercase font-semibold">
+            <span className="text-[10px] sm:text-xs tracking-[0.25em] text-[#7A4C62] uppercase font-normal">
               RC Jain's
             </span>
-            <span className="font-serif-custom text-lg sm:text-xl lg:text-2xl font-bold tracking-tight text-[#4A154B] leading-tight group-hover:text-[#B38F38] transition-colors">
+            <span className="font-serif-custom text-lg sm:text-xl lg:text-2xl font-normal tracking-tight text-[#4A154B] leading-tight group-hover:text-[#B38F38] transition-colors">
               OM DIVINE INSPIRATIONS
             </span>
-            <span className="text-[10px] sm:text-xs tracking-[0.2em] text-[#9B6B82] uppercase font-medium">
+            <span className="text-[10px] sm:text-xs tracking-[0.2em] text-[#9B6B82] uppercase font-normal">
               Where Tradition meets Trends
             </span>
           </Link>
@@ -130,7 +130,7 @@ export default function Navbar({ onOpenSearch }) {
             >
               <Heart className="w-5 h-5" />
               {wishlistCount > 0 && (
-                <span className="absolute top-0 right-0 bg-[#5C0632] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center animate-pulse">
+                <span className="absolute top-0 right-0 bg-[#5C0632] text-white text-[10px] font-normal w-4 h-4 rounded-full flex items-center justify-center animate-pulse">
                   {wishlistCount}
                 </span>
               )}
@@ -138,7 +138,7 @@ export default function Navbar({ onOpenSearch }) {
 
             <a
               href="tel:9319325840"
-              className="hidden sm:inline-flex items-center px-3.5 py-1.5 bg-[#4A154B] hover:bg-[#5C0632] text-white text-xs font-bold uppercase tracking-wider rounded-full transition-all shadow-sm"
+              className="hidden sm:inline-flex items-center px-3.5 py-1.5 bg-[#4A154B] hover:bg-[#5C0632] text-white text-xs font-normal uppercase tracking-wider rounded-full transition-all shadow-sm"
               title="Call Boutique Store"
             >
               <Phone className="w-3.5 h-3.5 mr-1.5 text-[#D4AF37]" />
@@ -156,14 +156,14 @@ export default function Navbar({ onOpenSearch }) {
                   key={link.name}
                   to={link.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-base font-medium text-[#4A3F3B] hover:text-[#4A154B] hover:pl-2 transition-all py-1 border-b border-[#F4EBE2]"
+                  className="text-base font-normal text-[#4A3F3B] hover:text-[#4A154B] hover:pl-2 transition-all py-1 border-b border-[#F4EBE2]"
                 >
                   {link.name}
                 </Link>
               ))}
               <div className="pt-2 flex flex-col space-y-2 text-xs text-[#7A4C62]">
                 <p className="flex items-center"><MapPin className="w-3.5 h-3.5 mr-1 text-[#D4AF37]" /> Mahavir Enclave, Palam, New Delhi</p>
-                <a href="tel:9319325840" className="flex items-center text-[#4A154B] font-semibold"><Phone className="w-3.5 h-3.5 mr-1 text-[#D4AF37]" /> Call Us: 9319325840</a>
+                <a href="tel:9319325840" className="flex items-center text-[#4A154B] font-normal"><Phone className="w-3.5 h-3.5 mr-1 text-[#D4AF37]" /> Call Us: 9319325840</a>
               </div>
             </div>
           </div>

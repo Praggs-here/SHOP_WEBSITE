@@ -16,11 +16,11 @@ export default function PromotionBanner() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           <div className="lg:col-span-8 text-center lg:text-left space-y-4">
-            <div className="inline-flex items-center px-3 py-1 bg-[#D4AF37] text-[#4A154B] text-xs font-bold uppercase tracking-widest rounded-full shadow-sm">
+            <div className="inline-flex items-center px-3 py-1 bg-[#D4AF37] text-[#4A154B] text-xs font-normal uppercase tracking-widest rounded-full shadow-sm">
               <Sparkles className="w-3.5 h-3.5 mr-1" /> SEASONAL PROMOTION
             </div>
 
-            <h2 className="font-serif-custom text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
+            <h2 className="font-serif-custom text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-white">
               SUMMER ARRIVALS
             </h2>
 
@@ -33,7 +33,7 @@ export default function PromotionBanner() {
               {categoriesList.map((item, idx) => (
                 <span
                   key={idx}
-                  className="px-3 py-1 bg-white/10 backdrop-blur-sm border border-white/20 text-xs font-medium rounded-lg text-[#FAF8F5]"
+                  className="px-3 py-1 bg-white/10 backdrop-blur-sm border border-white/20 text-xs font-normal rounded-lg text-[#FAF8F5]"
                 >
                   {item}
                 </span>
@@ -44,7 +44,7 @@ export default function PromotionBanner() {
           <div className="lg:col-span-4 text-center lg:text-right">
             <Link
               to="/shop"
-              className="inline-flex items-center px-8 py-4 bg-[#D4AF37] hover:bg-[#C5A059] text-[#4A154B] text-xs sm:text-sm font-bold uppercase tracking-widest rounded-full shadow-2xl hover:scale-105 transition-all duration-300 group"
+              className="inline-flex items-center px-8 py-4 bg-[#D4AF37] hover:bg-[#C5A059] text-[#4A154B] text-xs sm:text-sm font-normal uppercase tracking-widest rounded-full shadow-2xl hover:scale-105 transition-all duration-300 group"
             >
               <span>SHOP SUMMER COLLECTION</span>
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />

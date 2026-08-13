@@ -26,13 +26,13 @@ export default function Footer() {
           {/* Col 1: Brand Info */}
           <div className="lg:col-span-4 space-y-4">
             <div className="flex flex-col">
-              <span className="text-xs uppercase tracking-[0.25em] text-[#D4AF37] font-semibold">
+              <span className="text-xs uppercase tracking-[0.25em] text-[#D4AF37] font-normal">
                 RC Jain's
               </span>
-              <span className="font-serif-custom text-2xl lg:text-3xl font-bold tracking-tight text-white">
+              <span className="font-serif-custom text-2xl lg:text-3xl font-normal tracking-tight text-white">
                 OM DIVINE INSPIRATIONS
               </span>
-              <span className="text-xs uppercase tracking-[0.2em] text-[#F4DCD9] font-medium">
+              <span className="text-xs uppercase tracking-[0.2em] text-[#F4DCD9] font-normal">
                 The Ethnic Store
               </span>
               <span className="font-serif-custom italic text-sm text-[#D4AF37] mt-1">
@@ -71,7 +71,7 @@ export default function Footer() {
 
           {/* Col 2: Shop Links */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
+            <h4 className="text-xs font-normal uppercase tracking-widest text-[#D4AF37]">
               SHOP CATEGORIES
             </h4>
             <ul className="space-y-2 text-xs text-[#F4DCD9]/90">
@@ -83,13 +83,13 @@ export default function Footer() {
               <li><Link to="/shop?category=dresses" className="hover:text-white transition-colors">One-Piece Dresses</Link></li>
               <li><Link to="/shop?category=coords" className="hover:text-white transition-colors">Co-ord Sets</Link></li>
               <li><Link to="/shop?category=dupattas" className="hover:text-white transition-colors">Exclusive Dupattas</Link></li>
-              <li><Link to="/shop?category=plus-size" className="hover:text-white font-bold text-[#D4AF37] transition-colors">Plus Size Collection (XL-4XL)</Link></li>
+              <li><Link to="/shop?category=plus-size" className="hover:text-white font-normal text-[#D4AF37] transition-colors">Plus Size Collection (XL-4XL)</Link></li>
             </ul>
           </div>
 
           {/* Col 3: Customer Care & Store Info */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
+            <h4 className="text-xs font-normal uppercase tracking-widest text-[#D4AF37]">
               BOUTIQUE INFO
             </h4>
             <ul className="space-y-2 text-xs text-[#F4DCD9]/90">
@@ -101,7 +101,7 @@ export default function Footer() {
 
           {/* Col 4: Store Location & Phone */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
+            <h4 className="text-xs font-normal uppercase tracking-widest text-[#D4AF37]">
               STORE LOCATION
             </h4>
             <div className="space-y-2 text-xs text-[#F4DCD9]/90">
@@ -111,7 +111,7 @@ export default function Footer() {
               </p>
               <p className="flex items-center pt-1">
                 <Phone className="w-4 h-4 mr-2 text-[#D4AF37] flex-shrink-0" />
-                <a href="tel:9319325840" className="font-bold text-white hover:text-[#D4AF37] transition-colors">
+                <a href="tel:9319325840" className="font-normal text-white hover:text-[#D4AF37] transition-colors">
                   +91 9319325840
                 </a>
               </p>

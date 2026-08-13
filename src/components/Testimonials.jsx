@@ -8,10 +8,10 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-3">
-          <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#9B6B82]">
+          <span className="text-xs font-normal uppercase tracking-[0.25em] text-[#9B6B82]">
             TESTIMONIALS
           </span>
-          <h2 className="font-serif-custom text-3xl sm:text-4xl font-bold text-[#4A154B]">
+          <h2 className="font-serif-custom text-3xl sm:text-4xl font-normal text-[#4A154B]">
             WHAT OUR CUSTOMERS SAY
           </h2>
           <div className="w-16 h-[2px] bg-[#D4AF37] mx-auto my-3"></div>
@@ -39,7 +39,7 @@ export default function Testimonials() {
 
               <div className="pt-4 mt-4 border-t border-[#F4EBE2] flex justify-between items-end">
                 <div>
-                  <h4 className="text-xs font-bold text-[#4A154B]">{item.name}</h4>
+                  <h4 className="text-xs font-normal text-[#4A154B]">{item.name}</h4>
                   <p className="text-[10px] text-[#7A4C62]">{item.location}</p>
                 </div>
                 <span className="text-[10px] text-[#9B6B82] italic">{item.productPurchased}</span>

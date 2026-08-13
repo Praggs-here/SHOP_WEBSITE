@@ -11,10 +11,10 @@ export default function CollectionsSection() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16">
           <div className="space-y-2 text-center md:text-left">
-            <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#9B6B82]">
+            <span className="text-xs font-normal uppercase tracking-[0.25em] text-[#9B6B82]">
               CURATED EDITS & LOOKBOOKS
             </span>
-            <h2 className="font-serif-custom text-3xl sm:text-4xl lg:text-5xl font-bold text-[#4A154B]">
+            <h2 className="font-serif-custom text-3xl sm:text-4xl lg:text-5xl font-normal text-[#4A154B]">
               Explore Our Collection
             </h2>
             <p className="text-sm text-[#5C524E] max-w-lg">
@@ -24,7 +24,7 @@ export default function CollectionsSection() {
 
           <Link
             to="/collections"
-            className="mt-4 md:mt-0 text-xs font-bold uppercase tracking-widest text-[#4A154B] hover:text-[#B38F38] inline-flex items-center justify-center md:justify-start"
+            className="mt-4 md:mt-0 text-xs font-normal uppercase tracking-widest text-[#4A154B] hover:text-[#B38F38] inline-flex items-center justify-center md:justify-start"
           >
             <span>VIEW ALL EDITS</span>
             <ArrowRight className="w-4 h-4 ml-1" />
@@ -49,24 +49,24 @@ export default function CollectionsSection() {
 
               {/* Badge */}
               <div className="absolute top-4 left-4">
-                <span className="px-3 py-1 bg-[#D4AF37] text-[#4A154B] text-[10px] font-bold tracking-widest uppercase rounded-full shadow">
+                <span className="px-3 py-1 bg-[#D4AF37] text-[#4A154B] text-[10px] font-normal tracking-widest uppercase rounded-full shadow">
                   {item.badge}
                 </span>
               </div>
 
               {/* Content */}
               <div className="absolute inset-x-0 bottom-0 p-6 text-white space-y-2">
-                <span className="text-[11px] text-[#F4DCD9] tracking-wider font-semibold uppercase block">
+                <span className="text-[11px] text-[#F4DCD9] tracking-wider font-normal uppercase block">
                   {item.subtitle}
                 </span>
-                <h3 className="font-serif-custom text-2xl font-bold leading-tight">
+                <h3 className="font-serif-custom text-2xl font-normal leading-tight">
                   {item.title}
                 </h3>
                 <p className="text-xs text-[#FAF8F5]/90 line-clamp-2">
                   {item.description}
                 </p>
 
-                <div className="pt-2 flex items-center text-xs font-bold text-[#D4AF37] uppercase tracking-wider group-hover:translate-x-1 transition-transform">
+                <div className="pt-2 flex items-center text-xs font-normal text-[#D4AF37] uppercase tracking-wider group-hover:translate-x-1 transition-transform">
                   <span>Explore Collection</span>
                   <ArrowRight className="w-4 h-4 ml-1" />
                 </div>

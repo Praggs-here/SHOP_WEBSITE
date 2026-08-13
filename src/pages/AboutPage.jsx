@@ -27,11 +27,11 @@ export default function AboutPage() {
         {/* Story Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-[#FFFDF9] p-8 sm:p-12 rounded-3xl border border-[#E8D5C4] shadow-sm mb-16">
           <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center px-3.5 py-1 bg-[#F4DCD9] text-[#4A154B] text-xs font-bold uppercase tracking-wide rounded-full">
+            <div className="inline-flex items-center px-3.5 py-1 bg-[#F4DCD9] text-[#4A154B] text-xs font-normal uppercase tracking-wide rounded-full">
               <Sparkles className="w-3.5 h-3.5 mr-1" /> The Ethnic Store
             </div>
             
-            <h2 className="font-serif-custom text-3xl font-bold text-[#4A154B] leading-tight">
+            <h2 className="font-serif-custom text-3xl font-normal text-[#4A154B] leading-tight">
               Bringing together Indian tradition and modern women’s fashion
             </h2>
 
@@ -45,11 +45,11 @@ export default function AboutPage() {
 
             <div className="grid grid-cols-2 gap-4 pt-4 border-t border-[#F4EBE2]">
               <div>
-                <h4 className="text-xs font-bold text-[#4A154B] uppercase tracking-wide">Store Address</h4>
+                <h4 className="text-xs font-normal text-[#4A154B] uppercase tracking-wide">Store Address</h4>
                 <p className="text-xs text-[#7A4C62] mt-1">RZF-1/303, Street No 2, Mahavir Enclave, Palam, New Delhi - 110045</p>
               </div>
               <div>
-                <h4 className="text-xs font-bold text-[#4A154B] uppercase tracking-wide">Contact Phone</h4>
+                <h4 className="text-xs font-normal text-[#4A154B] uppercase tracking-wide">Contact Phone</h4>
                 <p className="text-xs text-[#7A4C62] mt-1">+91 9319325840</p>
               </div>
             </div>
@@ -63,8 +63,8 @@ export default function AboutPage() {
                 className="w-full h-[450px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#4A154B]/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
-                <span className="text-xs font-bold text-[#D4AF37] uppercase tracking-wide">New Delhi Boutique</span>
-                <h3 className="font-serif-custom text-2xl font-bold">R. C. Jain Ethnic Boutique</h3>
+                <span className="text-xs font-normal text-[#D4AF37] uppercase tracking-wide">New Delhi Boutique</span>
+                <h3 className="font-serif-custom text-2xl font-normal">R. C. Jain Ethnic Boutique</h3>
               </div>
             </div>
           </div>

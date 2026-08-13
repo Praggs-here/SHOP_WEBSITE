@@ -14,10 +14,10 @@ export default function NewArrivalsSection() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16">
           <div className="space-y-2 text-center md:text-left">
-            <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#9B6B82] flex items-center justify-center md:justify-start">
+            <span className="text-xs font-normal uppercase tracking-[0.25em] text-[#9B6B82] flex items-center justify-center md:justify-start">
               <Sparkles className="w-3.5 h-3.5 mr-1 text-[#D4AF37]" /> FRESH IN STORE & ONLINE
             </span>
-            <h2 className="font-serif-custom text-3xl sm:text-4xl lg:text-5xl font-bold text-[#4A154B]">
+            <h2 className="font-serif-custom text-3xl sm:text-4xl lg:text-5xl font-normal text-[#4A154B]">
               NEW ARRIVALS
             </h2>
             <p className="text-sm text-[#5C524E] max-w-lg">
@@ -27,7 +27,7 @@ export default function NewArrivalsSection() {
 
           <Link
             to="/shop"
-            className="mt-4 md:mt-0 text-xs font-bold uppercase tracking-widest text-[#4A154B] hover:text-[#B38F38] inline-flex items-center justify-center md:justify-start"
+            className="mt-4 md:mt-0 text-xs font-normal uppercase tracking-widest text-[#4A154B] hover:text-[#B38F38] inline-flex items-center justify-center md:justify-start"
           >
             <span>VIEW ALL NEW ARRIVALS</span>
             <ArrowRight className="w-4 h-4 ml-1" />

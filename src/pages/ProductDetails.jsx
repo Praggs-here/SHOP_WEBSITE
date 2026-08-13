@@ -23,15 +23,15 @@ export default function ProductDetails() {
       : 'border-[#E8D5C4] opacity-70 hover:opacity-100'
   }`;
 
-  const sizeButtonClass = (sz) => `px-4 py-2 text-xs font-bold rounded-xl border transition-all ${
+  const sizeButtonClass = (sz) => `px-4 py-2 text-xs font-normal rounded-xl border transition-all ${
     selectedSize === sz
       ? 'bg-[#4A154B] text-white border-[#4A154B] shadow-sm'
       : 'bg-white text-[#4A154B] border-[#E8D5C4] hover:border-[#4A154B]'
   }`;
 
-  const colorButtonClass = (c) => `px-3 py-1.5 text-xs font-semibold rounded-full border transition-all ${
+  const colorButtonClass = (c) => `px-3 py-1.5 text-xs font-normal rounded-full border transition-all ${
     selectedColor === c
-      ? 'bg-[#F4DCD9] text-[#4A154B] border-[#4A154B] font-bold'
+      ? 'bg-[#F4DCD9] text-[#4A154B] border-[#4A154B] font-normal'
       : 'bg-white text-[#5C524E] border-[#E8D5C4]'
   }`;
 
@@ -41,7 +41,7 @@ export default function ProductDetails() {
     ? 'flex-1 p-4 rounded-xl border transition-all flex items-center justify-center bg-[#5C0632] text-white border-[#5C0632]'
     : 'flex-1 p-4 rounded-xl border transition-all flex items-center justify-center bg-white text-[#4A154B] border-[#E8D5C4] hover:bg-[#FAF8F5]';
 
-  const tabButtonClass = (tab) => `pb-4 text-sm font-bold uppercase tracking-wider relative transition-colors ${
+  const tabButtonClass = (tab) => `pb-4 text-sm font-normal uppercase tracking-wider relative transition-colors ${
     activeTab === tab ? 'text-[#4A154B]' : 'text-[#7A4C62]'
   }`;
 
@@ -59,9 +59,9 @@ export default function ProductDetails() {
       <div className="bg-[#FAF8F5] min-h-screen py-16 animate-fade-in">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#4A154B]/10 text-[#4A154B] mx-auto mb-8">
-            <span className="text-3xl font-bold">404</span>
+            <span className="text-3xl font-normal">404</span>
           </div>
-          <h1 className="font-serif-custom text-4xl sm:text-5xl font-bold text-[#4A154B] mb-4">
+          <h1 className="font-serif-custom text-4xl sm:text-5xl font-normal text-[#4A154B] mb-4">
             Product Not Found
           </h1>
           <p className="text-sm sm:text-base text-[#5C524E] max-w-2xl mx-auto mb-8 leading-relaxed">
@@ -70,13 +70,13 @@ export default function ProductDetails() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#4A154B] text-white font-bold uppercase tracking-[0.18em] hover:bg-[#5C0632] transition-all"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#4A154B] text-white font-normal uppercase tracking-[0.18em] hover:bg-[#5C0632] transition-all"
             >
               Home
             </Link>
             <Link
               to="/shop"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-[#4A154B] text-[#4A154B] font-bold uppercase tracking-[0.18em] hover:bg-[#FAF8F5] transition-all"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-[#4A154B] text-[#4A154B] font-normal uppercase tracking-[0.18em] hover:bg-[#FAF8F5] transition-all"
             >
               Shop Catalogue
             </Link>
@@ -103,7 +103,7 @@ export default function ProductDetails() {
           <span>/</span>
           <Link to={`/shop?category=${product.category}`} className="hover:text-[#4A154B]">{product.categoryName}</Link>
           <span>/</span>
-          <span className="font-bold text-[#4A154B] line-clamp-1">{product.name}</span>
+          <span className="font-normal text-[#4A154B] line-clamp-1">{product.name}</span>
         </div>
 
         {/* Main Product Layout */}
@@ -118,7 +118,7 @@ export default function ProductDetails() {
                 className="w-full h-full object-cover object-center"
               />
               {product.discount && (
-                <span className="absolute top-4 left-4 px-3.5 py-1 bg-[#5C0632] text-white text-xs font-bold uppercase rounded-full shadow">
+                <span className="absolute top-4 left-4 px-3.5 py-1 bg-[#5C0632] text-white text-xs font-normal uppercase rounded-full shadow">
                   {product.discount}
                 </span>
               )}
@@ -143,10 +143,10 @@ export default function ProductDetails() {
           {/* Right Product Specs & Purchase controls */}
           <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
             <div className="space-y-4">
-              <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#9B6B82]">
+              <span className="text-xs uppercase tracking-[0.2em] font-normal text-[#9B6B82]">
                 RC JAIN'S • {product.categoryName}
               </span>
-              <h1 className="font-serif-custom text-3xl sm:text-4xl font-bold text-[#4A154B]">
+              <h1 className="font-serif-custom text-3xl sm:text-4xl font-normal text-[#4A154B]">
                 {product.name}
               </h1>
 
@@ -154,21 +154,21 @@ export default function ProductDetails() {
               <div className="flex items-center space-x-3">
                 <div className="flex items-center text-[#D4AF37]">
                   <Star className="w-4 h-4 fill-current" />
-                  <span className="text-xs font-bold ml-1 text-[#4A154B]">{product.rating}</span>
+                  <span className="text-xs font-normal ml-1 text-[#4A154B]">{product.rating}</span>
                 </div>
                 <span className="text-xs text-[#7A4C62]">({product.reviewsCount} customer reviews)</span>
-                <span className="text-xs text-[#2E5A44] font-bold bg-[#E8F0EC] px-2 py-0.5 rounded-full">In Stock</span>
+                <span className="text-xs text-[#2E5A44] font-normal bg-[#E8F0EC] px-2 py-0.5 rounded-full">In Stock</span>
               </div>
 
               {/* Pricing */}
               <div className="flex items-baseline space-x-4 pt-2">
-                <span className="text-3xl font-bold text-[#4A154B]">₹{product.price.toLocaleString()}</span>
+                <span className="text-3xl font-normal text-[#4A154B]">₹{product.price.toLocaleString()}</span>
                 {product.oldPrice && (
                   <span className="text-lg text-[#9B6B82] line-through font-normal">
                     ₹{product.oldPrice.toLocaleString()}
                   </span>
                 )}
-                <span className="text-xs font-bold text-[#5C0632]">Inclusive of all taxes</span>
+                <span className="text-xs font-normal text-[#5C0632]">Inclusive of all taxes</span>
               </div>
 
               <p className="text-sm text-[#5C524E] leading-relaxed pt-2">
@@ -179,7 +179,7 @@ export default function ProductDetails() {
               {product.sizes && product.sizes.length > 0 && (
                 <div className="space-y-2 pt-2">
                   <div className="flex justify-between items-center text-xs">
-                    <label className="font-bold uppercase tracking-wider text-[#4A154B]">
+                    <label className="font-normal uppercase tracking-wider text-[#4A154B]">
                       Select Size:
                     </label>
                     <span className="text-[#9B6B82] underline cursor-pointer">Size Guide</span>
@@ -201,7 +201,7 @@ export default function ProductDetails() {
               {/* Color Selector */}
               {product.colors && product.colors.length > 0 && (
                 <div className="space-y-2 pt-2">
-                  <label className="text-xs font-bold uppercase tracking-wider text-[#4A154B] block">
+                  <label className="text-xs font-normal uppercase tracking-wider text-[#4A154B] block">
                     Available Colors:
                   </label>
                   <div className="flex flex-wrap gap-2">
@@ -301,10 +301,10 @@ export default function ProductDetails() {
         {/* You May Also Like Section */}
         <div className="mt-16 space-y-8">
           <div className="text-center">
-            <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#9B6B82]">
+            <span className="text-xs font-normal uppercase tracking-[0.25em] text-[#9B6B82]">
               RECOMMENDED STYLES
             </span>
-            <h2 className="font-serif-custom text-3xl font-bold text-[#4A154B] mt-1">
+            <h2 className="font-serif-custom text-3xl font-normal text-[#4A154B] mt-1">
               YOU MAY ALSO LIKE
             </h2>
           </div>

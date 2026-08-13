@@ -20,15 +20,15 @@ export default function Hero() {
 
           {/* Left Text Column */}
           <div className="lg:col-span-6 text-center lg:text-left space-y-6 sm:space-y-8 animate-slide-up">
-            <div className="inline-flex items-center px-4 py-1.5 bg-[#FFFDF9] border border-[#D4AF37]/50 rounded-full text-[#4A154B] text-xs font-semibold tracking-widest uppercase shadow-sm">
+            <div className="inline-flex items-center px-4 py-1.5 bg-[#FFFDF9] border border-[#D4AF37]/50 rounded-full text-[#4A154B] text-xs font-normal tracking-widest uppercase shadow-sm">
               <Sparkles className="w-3.5 h-3.5 mr-2 text-[#D4AF37]" /> Authentic Women's Ethnic Boutique
             </div>
 
             <div className="space-y-2">
-              <span className="text-xs sm:text-sm font-semibold tracking-[0.3em] text-[#9B6B82] uppercase block">
+              <span className="text-xs sm:text-sm font-normal tracking-[0.3em] text-[#9B6B82] uppercase block">
                 RC Jain's OM DIVINE INSPIRATIONS
               </span>
-              <h1 className="font-serif-custom text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#4A154B] leading-[1.05]">
+              <h1 className="font-serif-custom text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-[#4A154B] leading-[1.05]">
                 Timeless Ethnic Elegance
               </h1>
             </div>
@@ -41,7 +41,7 @@ export default function Hero() {
               <button
                 onClick={scrollToCollections}
                 aria-label="Shop Collection - scroll to collections"
-                className="w-full sm:w-auto px-8 py-4 bg-[#4A154B] hover:bg-[#5C0632] text-white text-xs sm:text-sm font-bold uppercase tracking-widest rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center group"
+                className="w-full sm:w-auto px-8 py-4 bg-[#4A154B] hover:bg-[#5C0632] text-white text-xs sm:text-sm font-normal uppercase tracking-widest rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center group"
               >
                 <span>SHOP COLLECTION</span>
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -49,7 +49,7 @@ export default function Hero() {
 
               <Link
                 to="/shop"
-                className="w-full sm:w-auto px-8 py-4 bg-[#FFFDF9] hover:bg-[#F5F0EB] text-[#4A154B] border border-[#D9C8B4] text-xs sm:text-sm font-bold uppercase tracking-widest rounded-full transition-all duration-300 shadow-sm flex items-center justify-center"
+                className="w-full sm:w-auto px-8 py-4 bg-[#FFFDF9] hover:bg-[#F5F0EB] text-[#4A154B] border border-[#D9C8B4] text-xs sm:text-sm font-normal uppercase tracking-widest rounded-full transition-all duration-300 shadow-sm flex items-center justify-center"
               >
                 <span>EXPLORE NEW ARRIVALS</span>
               </Link>
@@ -58,16 +58,16 @@ export default function Hero() {
             {/* Micro Feature Badges */}
             <div className="pt-6 border-t border-[#E8D5C4]/60 grid grid-cols-3 gap-4 text-center lg:text-left">
               <div>
-                <span className="font-serif-custom text-xl sm:text-2xl font-bold text-[#4A154B]">100%</span>
-                <p className="text-[11px] text-[#7A4C62] uppercase tracking-wider font-medium">Authentic Quality</p>
+                <span className="font-serif-custom text-xl sm:text-2xl font-normal text-[#4A154B]">100%</span>
+                <p className="text-[11px] text-[#7A4C62] uppercase tracking-wider font-normal">Authentic Quality</p>
               </div>
               <div>
-                <span className="font-serif-custom text-xl sm:text-2xl font-bold text-[#4A154B]">XL to 4XL</span>
-                <p className="text-[11px] text-[#7A4C62] uppercase tracking-wider font-medium">Plus Sizes Available</p>
+                <span className="font-serif-custom text-xl sm:text-2xl font-normal text-[#4A154B]">XL to 4XL</span>
+                <p className="text-[11px] text-[#7A4C62] uppercase tracking-wider font-normal">Plus Sizes Available</p>
               </div>
               <div>
-                <span className="font-serif-custom text-xl sm:text-2xl font-bold text-[#4A154B]">New Delhi</span>
-                <p className="text-[11px] text-[#7A4C62] uppercase tracking-wider font-medium">Mahavir Enclave</p>
+                <span className="font-serif-custom text-xl sm:text-2xl font-normal text-[#4A154B]">New Delhi</span>
+                <p className="text-[11px] text-[#7A4C62] uppercase tracking-wider font-normal">Mahavir Enclave</p>
               </div>
             </div>
           </div>
@@ -83,8 +83,8 @@ export default function Hero() {
                   className="w-full h-[420px] sm:h-[500px] object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#4A154B]/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
-                  <span className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold">Festive Spotlight</span>
-                  <h3 className="font-serif-custom text-2xl font-bold">Royal Silk & Zari Weaves</h3>
+                  <span className="text-xs uppercase tracking-widest text-[#D4AF37] font-normal">Festive Spotlight</span>
+                  <h3 className="font-serif-custom text-2xl font-normal">Royal Silk & Zari Weaves</h3>
                 </div>
               </div>
 
@@ -97,14 +97,14 @@ export default function Hero() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <p className="text-xs font-bold text-[#4A154B]">Cotton & Fusion Kurtis</p>
+                <p className="text-xs font-normal text-[#4A154B]">Cotton & Fusion Kurtis</p>
                 <p className="text-[10px] text-[#7A4C62]">Everyday & Party Wear</p>
               </div>
 
               {/* Floating Badge */}
               <div className="absolute -top-4 -right-4 bg-[#4A154B] text-[#FAF8F5] p-4 rounded-2xl shadow-xl border border-[#D4AF37]/50 text-center">
-                <span className="text-[10px] uppercase tracking-widest text-[#D4AF37] block font-bold">R. C. JAIN'S</span>
-                <span className="font-serif-custom text-lg font-bold">ETHNIC STORE</span>
+                <span className="text-[10px] uppercase tracking-widest text-[#D4AF37] block font-normal">R. C. JAIN'S</span>
+                <span className="font-serif-custom text-lg font-normal">ETHNIC STORE</span>
               </div>
             </div>
           </div>

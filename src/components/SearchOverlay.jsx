@@ -50,7 +50,7 @@ export default function SearchOverlay({ isOpen, onClose }) {
         
         {/* Top Header Controls */}
         <div className="flex items-center justify-between pb-4 border-b border-[#F4EBE2]">
-          <span className="text-xs uppercase tracking-widest text-[#7A4C62] font-bold">
+          <span className="text-xs uppercase tracking-widest text-[#7A4C62] font-normal">
             SEARCH OM DIVINE INSPIRATIONS
           </span>
           <button
@@ -76,7 +76,7 @@ export default function SearchOverlay({ isOpen, onClose }) {
           {query && (
             <button
               onClick={() => setQuery('')}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-[#7A4C62] hover:text-[#4A154B]"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-normal text-[#7A4C62] hover:text-[#4A154B]"
             >
               CLEAR
             </button>
@@ -85,14 +85,14 @@ export default function SearchOverlay({ isOpen, onClose }) {
 
         {/* Popular Category Chips */}
         <div className="flex flex-wrap items-center gap-2 py-2">
-          <span className="text-xs font-bold text-[#4A154B] mr-2 flex items-center">
+          <span className="text-xs font-normal text-[#4A154B] mr-2 flex items-center">
             <Tag className="w-3.5 h-3.5 mr-1 text-[#D4AF37]" /> Popular:
           </span>
           {popularTags.map((tag) => (
             <button
               key={tag}
               onClick={() => handleTagClick(tag)}
-              className="px-3 py-1 bg-[#FAF8F5] hover:bg-[#F4DCD9] text-[#4A154B] text-xs font-semibold rounded-full border border-[#E8D5C4] transition-colors"
+              className="px-3 py-1 bg-[#FAF8F5] hover:bg-[#F4DCD9] text-[#4A154B] text-xs font-normal rounded-full border border-[#E8D5C4] transition-colors"
             >
               {tag}
             </button>
@@ -102,13 +102,13 @@ export default function SearchOverlay({ isOpen, onClose }) {
         {/* Results Container */}
         {query.trim() && (
           <div className="mt-6 max-h-96 overflow-y-auto space-y-3 pt-4 border-t border-[#F4EBE2]">
-            <span className="text-xs font-bold text-[#7A4C62] uppercase tracking-wider block">
+            <span className="text-xs font-normal text-[#7A4C62] uppercase tracking-wider block">
               Found {searchResults.length} matching items
             </span>
 
             {searchResults.length === 0 ? (
               <div className="py-8 text-center text-[#5C524E]">
-                <p className="text-sm font-medium">No outfits found matching "{query}".</p>
+                <p className="text-sm font-normal">No outfits found matching "{query}".</p>
                 <p className="text-xs text-[#9B6B82] mt-1">Try searching for Saree, Kurti, Salwar Suit, Lehenga, or Dress.</p>
               </div>
             ) : (
@@ -125,11 +125,11 @@ export default function SearchOverlay({ isOpen, onClose }) {
                       className="w-14 h-18 object-cover rounded-lg"
                     />
                     <div className="flex-1">
-                      <span className="text-[10px] uppercase font-bold text-[#7A4C62]">
+                      <span className="text-[10px] uppercase font-normal text-[#7A4C62]">
                         {p.categoryName}
                       </span>
-                      <h4 className="text-xs font-bold text-[#4A154B] line-clamp-1">{p.name}</h4>
-                      <p className="text-xs font-bold text-[#5C0632] mt-1">₹{p.price.toLocaleString()}</p>
+                      <h4 className="text-xs font-normal text-[#4A154B] line-clamp-1">{p.name}</h4>
+                      <p className="text-xs font-normal text-[#5C0632] mt-1">₹{p.price.toLocaleString()}</p>
                     </div>
                     <ArrowRight className="w-4 h-4 text-[#D4AF37]" />
                   </div>

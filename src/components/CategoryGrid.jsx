@@ -10,10 +10,10 @@ export default function CategoryGrid() {
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-3">
-          <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#9B6B82]">
+          <span className="text-xs font-normal uppercase tracking-[0.25em] text-[#9B6B82]">
             OUR SPECIALTY CATEGORIES
           </span>
-          <h2 className="font-serif-custom text-3xl sm:text-4xl lg:text-5xl font-bold text-[#4A154B]">
+          <h2 className="font-serif-custom text-3xl sm:text-4xl lg:text-5xl font-normal text-[#4A154B]">
             EXPLORE OUR COLLECTIONS
           </h2>
           <div className="w-16 h-[2px] bg-[#D4AF37] mx-auto my-3"></div>
@@ -42,7 +42,7 @@ export default function CategoryGrid() {
                 
                 {/* Top Badge */}
                 <div className="absolute top-3 left-3">
-                  <span className="px-2.5 py-1 bg-[#FFFDF9]/90 backdrop-blur-sm text-[#4A154B] text-[10px] font-bold tracking-wider uppercase rounded-full border border-[#D4AF37]/30 shadow-sm">
+                  <span className="px-2.5 py-1 bg-[#FFFDF9]/90 backdrop-blur-sm text-[#4A154B] text-[10px] font-normal tracking-wider uppercase rounded-full border border-[#D4AF37]/30 shadow-sm">
                     {cat.itemCount}
                   </span>
                 </div>
@@ -56,14 +56,14 @@ export default function CategoryGrid() {
               {/* Text Card Content */}
               <div className="p-4 sm:p-5 flex flex-col justify-between flex-grow bg-[#FFFDF9]">
                 <div>
-                  <h3 className="font-serif-custom text-lg sm:text-xl font-bold text-[#4A154B] group-hover:text-[#B38F38] transition-colors">
+                  <h3 className="font-serif-custom text-lg sm:text-xl font-normal text-[#4A154B] group-hover:text-[#B38F38] transition-colors">
                     {cat.name}
                   </h3>
                   <p className="text-xs text-[#7A4C62] line-clamp-2 mt-1 font-normal">
                     {cat.description}
                   </p>
                 </div>
-                <div className="mt-3 pt-3 border-t border-[#F4EBE2] flex items-center justify-between text-xs font-bold text-[#4A154B] uppercase tracking-wider group-hover:text-[#B38F38]">
+                <div className="mt-3 pt-3 border-t border-[#F4EBE2] flex items-center justify-between text-xs font-normal text-[#4A154B] uppercase tracking-wider group-hover:text-[#B38F38]">
                   <span>Explore Styles</span>
                   <span className="text-[#D4AF37]">&rarr;</span>
                 </div>

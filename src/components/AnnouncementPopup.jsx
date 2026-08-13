@@ -53,7 +53,7 @@ export default function AnnouncementPopup() {
             className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#4A154B]/90 via-[#4A154B]/40 to-transparent flex items-end p-6">
-            <span className="inline-flex items-center px-3 py-1 bg-[#D4AF37] text-[#4A154B] text-xs font-bold tracking-widest uppercase rounded-full shadow">
+            <span className="inline-flex items-center px-3 py-1 bg-[#D4AF37] text-[#4A154B] text-xs font-normal tracking-widest uppercase rounded-full shadow">
               <Sparkles className="w-3.5 h-3.5 mr-1" /> {announcementData.offerTag}
             </span>
           </div>
@@ -61,10 +61,10 @@ export default function AnnouncementPopup() {
 
         {/* Content Body */}
         <div className="p-6 sm:p-8 text-center space-y-4">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#7A4C62]">
+          <span className="text-xs font-normal uppercase tracking-[0.2em] text-[#7A4C62]">
             {announcementData.subtitle}
           </span>
-          <h2 className="font-serif-custom text-2xl sm:text-3xl font-bold text-[#4A154B] tracking-tight">
+          <h2 className="font-serif-custom text-2xl sm:text-3xl font-normal text-[#4A154B] tracking-tight">
             {announcementData.title}
           </h2>
           <p className="text-sm text-[#5C524E] leading-relaxed max-w-md mx-auto">
@@ -75,14 +75,14 @@ export default function AnnouncementPopup() {
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
             <button
               onClick={handleAction}
-              className="w-full sm:w-auto px-6 py-3 bg-[#4A154B] hover:bg-[#5C0632] text-white text-xs font-bold uppercase tracking-widest rounded-full transition-all duration-300 shadow-md flex items-center justify-center group"
+              className="w-full sm:w-auto px-6 py-3 bg-[#4A154B] hover:bg-[#5C0632] text-white text-xs font-normal uppercase tracking-widest rounded-full transition-all duration-300 shadow-md flex items-center justify-center group"
             >
               <span>{announcementData.buttonText}</span>
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </button>
             <button
               onClick={handleClose}
-              className="w-full sm:w-auto px-5 py-3 text-xs font-bold uppercase tracking-widest text-[#7A4C62] hover:text-[#4A154B] transition-colors"
+              className="w-full sm:w-auto px-5 py-3 text-xs font-normal uppercase tracking-widest text-[#7A4C62] hover:text-[#4A154B] transition-colors"
             >
               CLOSE
             </button>
