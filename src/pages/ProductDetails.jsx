@@ -35,6 +35,8 @@ export default function ProductDetails() {
       : 'bg-white text-[#5C524E] border-[#E8D5C4]'
   }`;
 
+  const isLiked = product ? isInWishlist(product.id) : false;
+
   const actionButtonClass = isLiked
     ? 'flex-1 p-4 rounded-xl border transition-all flex items-center justify-center bg-[#5C0632] text-white border-[#5C0632]'
     : 'flex-1 p-4 rounded-xl border transition-all flex items-center justify-center bg-white text-[#4A154B] border-[#E8D5C4] hover:bg-[#FAF8F5]';
@@ -83,8 +85,6 @@ export default function ProductDetails() {
       </div>
     );
   }
-
-  const isLiked = isInWishlist(product.id);
 
   const relatedProducts = products
     .filter(p => p.category === product.category && p.id !== product.id)
