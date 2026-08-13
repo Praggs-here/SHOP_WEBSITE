@@ -12,8 +12,11 @@ export default function AboutPage() {
           <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#9B6B82]">
             OUR STORY & HERITAGE
           </span>
+          <h3 className="font-serif-custom text-4xl sm:text-5xl font-bold text-[#4A154B]">
+            RC Jain's
+          </h3>
           <h1 className="font-serif-custom text-4xl sm:text-5xl font-bold text-[#4A154B]">
-            R. C. Jain's OM DIVINE INSPIRATIONS
+            OM DIVINE INSPIRATIONS
           </h1>
           <p className="font-serif-custom italic text-lg text-[#C5A059]">
             "Where Tradition meets Trends"
