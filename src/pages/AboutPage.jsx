@@ -13,7 +13,7 @@ export default function AboutPage() {
             Our Story & Heritage
           </span>
           <h3 className="font-serif-custom text-4xl sm:text-5xl text-[#4A154B]">
-            RC Jain
+            RC Jain's
           </h3>
           <h1 className="font-serif-custom text-4xl sm:text-5xl text-[#4A154B]">
             Om Divine Inspirations
@@ -64,7 +64,7 @@ export default function AboutPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#4A154B]/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
                 <span className="text-xs font-normal text-[#D4AF37] uppercase tracking-wide">New Delhi Boutique</span>
-                <h3 className="font-serif-custom text-2xl font-normal">R. C. Jain Ethnic Boutique</h3>
+                <h3 className="font-serif-custom text-2xl font-normal">RC Jain's Ethnic Boutique</h3>
               </div>
             </div>
           </div>

@@ -20,7 +20,7 @@ export const testimonials = [
   {
     id: 3,
     name: "Lakshay Jain",
-    location: "Palam, New Delhi",
+    location: "Bangalore, Karnataka",
     rating: 5,
     comment: "Finding stylish plus-size ethnic wear used to be so difficult until I discovered OM DIVINE INSPIRATIONS. The fitting of the Anarkali suit is perfect!",
     productPurchased: "Plus Size Anarkali Suit",
@@ -29,7 +29,7 @@ export const testimonials = [
   {
     id: 4,
     name: "Vilakshan Jain",
-    location: "Gurugram, Haryana",
+    location: "Palam, New Delhi",
     rating: 5,
     comment: "The summer floral one-piece dress is my absolute favorite. Lightweight, stylish, and perfect for New Delhi weather.",
     productPurchased: "Floral Summer Dress",
